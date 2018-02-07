@@ -1,13 +1,45 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/addCgi/addCgi"
+    "pages/addCgi/addCgi",
+    "pages/home/home",
+    "pages/classify/classify",
+    "pages/account/account"
   ],
-  "window":{
-    "backgroundColor":"#F6F6F6",
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "Wafer Quick Start",
-    "navigationBarTextStyle":"black"
-  }
+    "navigationBarTitleText": "KindlePusher",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": "50"
+  },
+  "tabBar": {
+    "selectedColor": "#007AFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/images/book_default.png",
+        "selectedIconPath": "assets/images/book_active.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "assets/images/classify_default.png",
+        "selectedIconPath": "assets/images/classify_active.png"
+      },
+      {
+        "pagePath": "pages/account/account",
+        "text": "我",
+        "iconPath": "assets/images/account_default.png",
+        "selectedIconPath": "assets/images/account_active.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
 }
