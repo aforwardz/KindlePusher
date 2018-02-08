@@ -1,2 +1,18 @@
 <!--pages/account/account.wxml-->
-<text>pages/account/account.wxml</text>
+<view class="container">
+    <!-- 用户登录测试 -->
+    <view class="userinfo" bindtap="login">
+        <image
+            class="userinfo-avatar"
+            src="{{logged ? userInfo.avatarUrl : '../../assets/images/user-unlogin.png'}}"
+            background-size="cover"
+        ></image>
+        <view>
+            <text class="userinfo-nickname">{{logged ? userInfo.nickName : '点击登录'}}</text>
+            <text class="userinfo-nickname" wx:if="{{logged}}">{{userInfo.lastLoginTime}}</text>
+        </view>
+    </view>
+    <view class='userdata' bindtap='login'>
+    
+    </view>
+</view>

@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/addCgi/addCgi",
+    "pages/home/search/search",
     "pages/home/home",
     "pages/classify/classify",
-    "pages/account/account"
+    "pages/account/account",
+    "pages/addCgi/addCgi"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -18,7 +18,7 @@
     "selectedColor": "#007AFF",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/home/search/search",
         "text": "首页",
         "iconPath": "assets/images/book_default.png",
         "selectedIconPath": "assets/images/book_active.png"
