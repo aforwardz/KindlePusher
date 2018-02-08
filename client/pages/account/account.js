@@ -12,7 +12,8 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    userData: [{k:'pushed', v: 0}, {k: 'test', v: 3}]
   },
 
   // 用户登录示例
