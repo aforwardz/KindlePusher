@@ -12,7 +12,11 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    userdata: [
+      {name: 'book', value: 2},
+      {name: 'push', value: 4}
+    ]
   },
 
   // 用户登录示例

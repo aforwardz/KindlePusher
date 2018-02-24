@@ -13,6 +13,8 @@
         </view>
     </view>
     <view class='userdata' bindtap='login'>
-    
+      <view wx:for="{{userdata}}">
+        {{item.name}}:{{item.value}}
+      </view>
     </view>
 </view>
