@@ -11,7 +11,7 @@ page {
     margin-top: 20rpx;
     height: 300rpx;
     width: 50%;
-    background: #FFF;
+    /* background: #FFF; */
     border-left: none;
     border-right: none;
     display: flex;
@@ -31,4 +31,9 @@ page {
     margin-top: 20rpx;
     font-size: 40rpx;
     color: #007AFF;
+}
+
+.data-item {
+  margin-top: 20rpx;
+  align-items: row;
 }
