@@ -13,6 +13,12 @@
         </view>
     </view>
     <view class='userdata' bindtap='login'>
-    
+<<<<<<< HEAD
+      <view wx:for="{{userdata}}">
+        {{item.name}}:{{item.value}}
+      </view>
+=======
+      <text class='data-item' wx:for="{{userData}}" wx:key="k">{{item.v}}</text>
+>>>>>>> f36f47bedfe8f683f302e59019a0745a50291e74
     </view>
 </view>
