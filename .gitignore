@@ -1,5 +1,10 @@
-*/node_modules
+# global
 env/
+.idea/
+__pycache__/
+.DS_Store
+
+# manipulator
 migrations/
-*/__pycache__
-*.py[ocd]
+logs/
+
