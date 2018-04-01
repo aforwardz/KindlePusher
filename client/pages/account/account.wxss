@@ -7,6 +7,13 @@ page {
     justify-content: flex-start;
 }
 
+.container .bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
 .userinfo {
     margin-top: 20rpx;
     height: 300rpx;

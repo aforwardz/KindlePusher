@@ -1,37 +1,37 @@
 {
   "pages": [
-    "pages/home/search/search",
     "pages/home/home",
+    "pages/search/search",
     "pages/classify/classify",
     "pages/account/account",
     "pages/addCgi/addCgi"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#1296db",
     "navigationBarTitleText": "KindlePusher",
-    "navigationBarTextStyle": "black",
-    "onReachBottomDistance": "50"
+    "navigationBarTextStyle": "white",
+    "onReachBottomDistance": "50",
+    "backgroundColorBottom": "#1296db"
   },
   "tabBar": {
     "selectedColor": "#007AFF",
     "list": [
       {
-        "pagePath": "pages/home/search/search",
-        "text": "首页",
+        "pagePath": "pages/home/home",
+        "text": "源起",
         "iconPath": "assets/images/book_default.png",
         "selectedIconPath": "assets/images/book_active.png"
       },
       {
-        "pagePath": "pages/classify/classify",
-        "text": "分类",
-        "iconPath": "assets/images/classify_default.png",
-        "selectedIconPath": "assets/images/classify_active.png"
+        "pagePath": "pages/search/search",
+        "text": "探索",
+        "iconPath": "assets/images/search_default.png",
+        "selectedIconPath": "assets/images/search_active.png"
       },
       {
         "pagePath": "pages/account/account",
-        "text": "我",
+        "text": "自我",
         "iconPath": "assets/images/account_default.png",
         "selectedIconPath": "assets/images/account_active.png"
       }

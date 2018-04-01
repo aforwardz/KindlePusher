@@ -1,2 +1,24 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view class="container">
+  <image class="bg" src="../../assets/images/bg.jpg"></image> 
+  <view class="decoration-wrapper">
+    <view class="decoration">
+      <text class="title">Kindle Pusher</text>
+    </view>
+  </view>
+  <view class="latest-wrapper">
+    <view class="latest">
+      <view class="title">最新上线</view>
+    </view>
+  </view>
+  <view class="recommend-wrapper">
+    <view class="recommend">
+      <view class="title">今日推荐</view>
+    </view>
+  </view>
+  <view class="rank-wrapper">
+    <view class="rank">
+      <view class="title">排行榜</view>
+    </view>
+  </view>
+</view>
