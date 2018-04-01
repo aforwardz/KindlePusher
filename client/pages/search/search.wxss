@@ -1,0 +1,124 @@
+/* pages/search/search.wxss */
+.container .bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.session-search {
+    width: 100%; 
+    height: 60rpx;
+    background-color: #ddd; 
+    border-radius: 10rpx;
+    border-width: 10rpx; 
+    border-color: blue;
+    display: flex;
+    flex-direction: center;
+    justify-content: flex-start;
+}
+
+.search-icon {
+  margin: 15rpx;
+}
+
+.search-content {
+  background-color: white; 
+  flex: 1;
+  margin-left: 1rpx;
+  margin-top: 5rpx;
+  color: #4a4a4a;
+  font-size: 28rpx;
+  height: 80%;
+  padding-left: 5px;
+}
+
+.search-placeholder {
+  color: #9e9e9e;
+  font-size: 28rpx;
+  /* margin-left: 5px; */
+}
+
+.search-clear {
+  background-color: white;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding-top: 4px;
+  width: 7%;
+}
+
+.search-start {
+  color: #9e9e9e;
+  display: flex;
+  padding-top: 6px;
+  padding-left: 4px;
+  width: 60rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.session-book {
+  padding: 10px;
+  width: 90%;
+}
+
+.book-wrapper {
+  border: groove;
+  border-radius: 15px; 
+  margin-bottom: 10px;
+}
+
+.book-summary {
+  margin: 0px 10px 10px 10px;
+}
+
+.book-content {
+  margin: 10px;
+  display: flex;
+}
+
+.poster {
+  width: 120px;
+  height: 120px;
+  margin-right: 10px;
+}
+
+.breif-intro {
+  width: 60%;
+  align-items: center;
+}
+
+.breif-intro .book-name {
+  width: 100%;
+  color: blue;
+  /* font-size: 16px; */
+  text-align: center;
+}
+
+.breif-intro .book-author {
+  width: 50%;
+  color: black;
+  font-size: 20px;
+}
+
+.book-info {
+  display: flex;
+}
+
+.book-info .book-date {
+  width: 60%;
+  color: gray;
+  font-size: 18px;
+}
+
+.book-info .book-rate {
+  width: 40%;
+  color: red;
+  font-size:22px;
+  text-align: right;
+}
+
+.book-formats {
+  text-align: center;
+}
+

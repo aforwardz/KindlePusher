@@ -13,14 +13,7 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
-<<<<<<< HEAD
-    userdata: [
-      {name: 'book', value: 2},
-      {name: 'push', value: 4}
-    ]
-=======
     userData: [{k:'pushed', v: 0}, {k: 'test', v: 3}]
->>>>>>> f36f47bedfe8f683f302e59019a0745a50291e74
   },
 
   // 用户登录示例

@@ -7,8 +7,34 @@ Page({
    */
   data: {
     searchValue: "",
-    showDelete: false,
-    result: {}
+    showClear: false,
+    format_index: 0,
+    result: {
+      subjects: [{
+        id: 1,
+        casts: ['tc'],
+        collect_count: 5,
+        directors: 'ycw',
+        title: 'test',
+        images: '../../../assets/images/kindle_default.jpg',
+        rating: 9.8,
+        year: '2017-05-22',
+        summary: 'good',
+        formats: ['epub', 'pdf']
+      },
+        {
+          id: 2,
+          casts: ['tc'],
+          collect_count: 5,
+          directors: 'ycw',
+          title: 'test',
+          images: '../../../assets/images/kindle_default.jpg',
+          rating: 9.8,
+          year: '2017-05-22',
+          summary: 'good',
+          formats: ['epub', 'pdf']
+        }]
+    }
   },
 
   /**
@@ -49,21 +75,21 @@ Page({
 /**搜索书籍 */
   bindSearchInput: function (event) {
     var value = event.detail.value;
-    var readyData = { showDelete: false };
+    var readyData = { showClear: false };
     if (value.length > 0) {
-      readyData = { showDelete: true };
-      this.handleSearchData(value);
+      readyData = { showClear: true , searchValue: value};
+      // this.handleSearchData(value);
     }
     this.setData(readyData);
   },
   /**清空输入框 */
-  bindSearchDelete: function (event) {
-    var readyData = { searchValue: "", showDelete: false, result: {} };
+  bindSearchClear: function (event) {
+    var readyData = { searchValue: "", showClear: false, result: {} };
     this.setData(readyData);
   },
-  /**点击取消 */
-  bindSearchCancel: function (event) {
-    wx.navigateBack();
+  /**点击搜索 */
+  bindSearchStart: function (event) {
+    this.handleSearchData(this.searchValue)
   },
   /** 提交搜索请求 */
   handleSearchData: function (value) {
@@ -88,7 +114,7 @@ Page({
   },
   /**组装搜索数据 */
   processSearchData: function (data) {
-    var movies = [];
+    var books = [];
     for (let idx in data.subjects) {
       var subject = data.subjects[idx];
       var directors = "";
@@ -109,11 +135,11 @@ Page({
         year: subject.year,
         summary: summary
       };
-      movies.push(temp);
+      books.push(temp);
     }
     var readyData = {};
     readyData["result"] = {
-      subjects: movies
+      subjects: books
     }
 
     this.setData(readyData);
@@ -123,6 +149,13 @@ Page({
     var id = event.currentTarget.dataset.id;
     wx.redirectTo({
       url: '/pages/movie/movie-detail/movie-detail?id=' + id
+    })
+  },
+
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      format_index: e.detail.value
     })
   },
 
