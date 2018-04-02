@@ -6,19 +6,61 @@
       <text class="title">Kindle Pusher</text>
     </view>
   </view>
-  <view class="latest-wrapper">
+  <view class="latest-container">
     <view class="latest">
       <view class="title">最新上线</view>
+      <block wx:for="{{latests}}" wx:for-item="item">
+       <view class="latest-wrapper">
+          <view class="latest-name">
+            <text>{{item.name}}</text>
+          </view>
+          <view class="latest-date">
+            <text>{{item.create_time}}</text>
+          </view>
+       </view>
+      </block>
     </view>
   </view>
-  <view class="recommend-wrapper">
+  <view class="recommend-container">
     <view class="recommend">
       <view class="title">今日推荐</view>
+      <block wx:for="{{recommends}}" wx:for-item="item">
+       <view class="recommend-wrapper">
+        <view class="recommend-name">
+          <text>{{item.name}}</text>
+        </view>
+        <view class="recommend-rating">
+          <text>{{item.rating}}</text>
+        </view>
+       </view>
+      </block>
     </view>
   </view>
-  <view class="rank-wrapper">
+  <view class="rank-container">
     <view class="rank">
       <view class="title">排行榜</view>
+      <block wx:for="{{ranks}}" wx:for-item="item">
+       <view class="rank-wrapper">
+        <view class="rank-name">
+          <text>{{item.name}}</text>
+        </view>
+        <view class="rank-ranking">
+          <text>{{item.ranking}}</text>
+        </view>
+       </view>
+      </block>
+    </view>
+  </view>
+  <view class="free-container">
+    <view class="free">
+      <view class="title">免费专区</view>
+      <block wx:for="{{frees}}" wx:for-item="item">
+       <view class="free-wrapper">
+        <view class="free-name">
+          <text>{{item.name}}</text>
+        </view>
+       </view>
+      </block>
     </view>
   </view>
 </view>
