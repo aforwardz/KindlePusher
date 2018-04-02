@@ -33,6 +33,30 @@ Page({
           year: '2017-05-22',
           summary: 'good',
           formats: ['epub', 'pdf']
+        },
+        {
+          id: 3,
+          casts: ['tc'],
+          collect_count: 5,
+          directors: 'ycw',
+          title: 'test',
+          images: '../../../assets/images/kindle_default.jpg',
+          rating: 9.8,
+          year: '2017-05-22',
+          summary: 'good',
+          formats: ['epub', 'pdf']
+        },
+        {
+          id: 4,
+          casts: ['tc'],
+          collect_count: 5,
+          directors: 'ycw',
+          title: 'test',
+          images: '../../../assets/images/kindle_default.jpg',
+          rating: 9.8,
+          year: '2017-05-22',
+          summary: 'good',
+          formats: ['epub', 'pdf']
         }]
     }
   },

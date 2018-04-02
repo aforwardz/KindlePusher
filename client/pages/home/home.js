@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    latests: [{ name: 'test1', create_time: '2018-02-12' }, { name: 'test2', create_time: '2018-02-12' }],
+    recommends: [{ name: 'test3', rating: 8.8 }, { name: 'test4', rating: 8.8 }],
+    ranks: [{ name: 'test5', ranking: 1 }, { name: 'test6', ranking: 3 }],
+    frees: [{ name: 'test7' }, { name: 'test8' }]
   },
 
   /**
