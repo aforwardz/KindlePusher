@@ -1,4 +1,5 @@
 // pages/home/home.js
+var ebook_api = getApp().ebook_service
 Page({
 
   /**
@@ -11,11 +12,70 @@ Page({
     frees: [{ name: 'test7' }, { name: 'test8' }]
   },
 
+  loadLatest: function () {
+    var that = this;
+    wx.request({
+      url: ebook_api.LATEST_API,
+      success: function (response) {
+        var latest_data = response.data
+        console.log(response.data)
+        if (latest_data) {
+          that.setData({latests: latest_data})
+        }
+      }
+    })
+  },
+
+  loadRecommend: function () {
+    var that = this;
+    wx.request({
+      url: ebook_api.RECOMMEND_API,
+      success: function (response) {
+        var recommend_data = response.data
+        console.log(response.data)
+        if (recommend_data) {
+          that.setData({ recommends: recommend_data })
+        }
+      }
+    })
+  },
+
+  loadRank: function () {
+    var that = this;
+    wx.request({
+      url: ebook_api.RANK_API,
+      success: function (response) {
+        var rank_data = response.data
+        console.log(response.data)
+        if (rank_data) {
+          that.setData({ ranks: rank_data })
+        }
+      }
+    })
+  },
+
+  loadFree: function () {
+    var that = this;
+    wx.request({
+      url: ebook_api.FREE_API,
+      success: function (response) {
+        var free_data = response.data
+        console.log(response.data)
+        if (free_data) {
+          that.setData({ frees: free_data })
+        }
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.loadLatest(),
+    this.loadRecommend(),
+    this.loadRank(),
+    this.loadFree()
   },
 
   /**
