@@ -16,46 +16,17 @@ def account_avatar(obj, file):
     return os.path.join('avatars', obj.username, file)
 
 
-class Account(AbstractUser):
-    nickname = models.CharField(max_length=50, unique=True)
-    bio = models.CharField(max_length=120, blank=True)
-    url = models.URLField(max_length=100, blank=True)
-    location = models.CharField(max_length=100, blank=True)
-    avatar = models.ImageField(upload_to=account_avatar)
-    avatar_thumbnail = ImageSpecField(
-        source='avatar',
-        processors=[ResizeToFill(96, 96)],
-        format='JPEG',
-        options={'quality': 100})
-    last_login_ip = models.GenericIPAddressField(
-        unpack_ipv4=True, null=True, blank=True)
-    ip_joined = models.GenericIPAddressField(
-        unpack_ipv4=True, null=True, blank=True)
+class Account(models.Model):
+    openId = models.CharField(verbose_name='OpenID', max_length=200)
+    nickname = models.CharField(verbose_name='昵称', max_length=50, unique=True)
+    bio = models.CharField(verbose_name='简介', max_length=120, blank=True)
+    province = models.CharField(verbose_name='省份', max_length=100, blank=True)
+    city = models.CharField(verbose_name='城市', max_length=100, blank=True)
+    avatar = models.URLField(verbose_name='头像')
 
-    client_mark = models.CharField(
-        max_length=10, default='wechat', null=True, blank=True)
-
-    wechat_nickName = models.CharField(max_length=50, null=True, blank=True)
-    wechat_avatarUrl = models.URLField(max_length=200, null=True, blank=True)
-    open_mark = models.BooleanField(default=True)
-    wechat = models.CharField(max_length=50, null=True, blank=True, default='')
+    pushes = models.IntegerField(verbose_name='推送量', default=0)
+    favors = models.IntegerField(verbose_name='收藏量', default=0)
+    contributes = models.IntegerField(verbose_name='贡献量', default=0)
 
     def __str__(self):
-        return self.username
-
-    def save(self, *args, **kwargs):
-        if not self.nickname:
-            self.nickname = self.username
-
-        if not self.avatar:
-            avatar_img = pagan.Avatar(self.username, pagan.SHA256)
-            self.avatar.save(
-                'default_avatar.png',
-                ContentFile(avatar_img),
-                save=False
-            )
-
-        super().save(*args, **kwargs)
-
-    def get_absolute_url(self):
-        return URLResolver.reverse('account:profile', args=(self.username,))
+        return self.nickname

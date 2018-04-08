@@ -1,9 +1,8 @@
 /* pages/search/search.wxss */
-.container .bg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
+page {
+  background: url('http://127.0.0.1:8000/media/bg.jpg');
+  background-size: cover;  
+  background-attachment: fixed;
 }
 
 .session-search {

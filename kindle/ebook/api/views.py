@@ -3,10 +3,14 @@ from rest_framework.generics import (
     ListAPIView,
     RetrieveAPIView
 )
+from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 from rest_framework import filters
+from django.shortcuts import get_object_or_404
 from ebook.api.serializers import EbookSerializer
 from ebook.models import Ebook
+from utils.handler import _send_mail
 
 
 class EbookRetrieveView(RetrieveAPIView):
@@ -16,8 +20,9 @@ class EbookRetrieveView(RetrieveAPIView):
         filters.OrderingFilter
     )
 
-    def get(self, request, *args, **kwargs):
-        pass
+    def get_object(self):
+        obj = get_object_or_404(Ebook, pk=self.kwargs.get('pk', 0))
+        return obj
 
 
 class EbookLatestView(ListAPIView):
@@ -58,3 +63,29 @@ class EbookFreeView(ListAPIView):
             'create_time').order_by('name').distinct('name')
 
         return queryset
+
+
+class EbookPushView(APIView):
+    def post(self, request):
+        if not request.data.get('ebook_id'):
+            return Response({'detail': 'NO EBOOK ID PROVIDED', 'statusText': 'MISS'})
+
+        ebook_id = request.data.get('ebook_id')
+        ebook = Ebook.objects.filter(id=ebook_id)
+        if not ebook.exists():
+            return Response({'detail': 'EBOOK NOT EXISTS', 'statusText': 'NOT EXISTS'})
+
+        ebook = ebook.first()
+        if not ebook.source:
+            return Response({'detail': 'SOURCE NOT FOUND', 'statusText': 'NOT FOUND'})
+
+        res = _send_mail(
+            email_to=[],
+            subject='{} {} 消息发送日志',
+            message_body="",
+            email_from="",
+            message_html='',
+            custom_headers={},
+            attachment_path="",
+            extra_attachment_header=None,
+        )
