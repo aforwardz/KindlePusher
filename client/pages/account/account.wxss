@@ -1,17 +1,9 @@
 /* pages/account/account.wxss */
 
 page {
-    background: #F6F6F6;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.container .bg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
+  background: url('http://127.0.0.1:8000/media/bg.jpg');
+  background-size: cover;  
+  background-attachment: fixed;
 }
 
 .userinfo {

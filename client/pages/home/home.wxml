@@ -1,6 +1,5 @@
 <!--pages/home/home.wxml-->
 <view class="container">
-  <image class="bg" src="../../assets/images/bg.jpg"></image> 
   <view class="decoration-wrapper">
     <view class="decoration">
       <text class="title">Kindle Pusher</text>

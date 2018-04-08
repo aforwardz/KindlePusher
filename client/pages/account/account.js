@@ -23,43 +23,90 @@ Page({
     util.showBusy('正在登录')
     var that = this
 
-    // 调用登录接口
-    qcloud.login({
-      success(result) {
-        if (result) {
-          util.showSuccess('登录成功')
-          console.log(result)
-          that.setData({
-            userInfo: result,
-            logged: true
-          })
-        } else {
-          // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
-          qcloud.request({
-            url: config.service.requestUrl,
-            login: true,
-            success(result) {
-              util.showSuccess('登录成功')
-              console.log(result.data.data)
-              that.setData({
-                userInfo: result.data.data,
-                logged: true
-              })
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'http://127.0.0.1:8000/api/account/wxlogin/',
+            data: {
+              code: res.code
             },
-
-            fail(error) {
-              util.showModel('请求失败', error)
-              console.log('request fail', error)
+            success: function (wxRes) {
+              util.showBusy('等待校验')
+              console.log(wxRes)
+              if (wxRes.data.status == 'check') {
+                wx.getUserInfo({
+                  success: function (userRes) {
+                    console.log(userRes)
+                    wx.request({
+                      url: 'http://127.0.0.1:8000/api/account/kdlogin/',
+                      data: {
+                        encryptedData: userRes.encryptedData,
+                        iv: userRes.iv
+                      },
+                      method: 'POST',
+                      success: function (kdRes) {
+                        util.showSuccess('登录成功')
+                        console.log(kdRes)
+                        that.setData({
+                          userInfo: kdRes.data,
+                          logged: true
+                        })
+                      },
+                      fail: function (kdRes) {
+                        util.showFail('登录失败')
+                        console.log(kdRes)
+                      }
+                    })
+                  }
+                })
+              }
             }
           })
+        } else {
+          console.log('登录失败！' + res.errMsg)
         }
-      },
-
-      fail(error) {
-        util.showModel('登录失败', error)
-        console.log('登录失败', error)
       }
     })
+
+    // 调用登录接口
+    // qcloud.login({
+    //   success(result) {
+    //     if (result) {
+    //       util.showSuccess('登录成功')
+    //       console.log(result)
+    //       that.setData({
+    //         userInfo: result,
+    //         logged: true
+    //       })
+    //     } else {
+    //       // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
+    //       qcloud.request({
+    //         url: config.service.requestUrl,
+    //         login: true,
+    //         success(result) {
+    //           util.showSuccess('登录成功')
+    //           console.log(result.data.data)
+    //           that.setData({
+    //             userInfo: result.data.data,
+    //             logged: true
+    //           })
+    //         },
+
+    //         fail(error) {
+    //           util.showModel('请求失败', error)
+    //           console.log('request fail', error)
+    //         }
+    //       })
+    //     }
+    //   },
+
+    //   fail(error) {
+    //     util.showModel('登录失败', error)
+    //     console.log('登录失败', error)
+    //   }
+    // })
   },
 
   /**

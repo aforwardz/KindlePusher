@@ -1,6 +1,6 @@
 <!--pages/home/search/search.wxml-->
 <view class="container">
-  <image class="bg" src="../../assets/images/bg.jpg"></image> 
+  <!-- <image class="bg" src="../../assets/images/bg2.jpg"></image>  -->
   <view class="session-search">
     <icon class="search-icon" type="search" size="16"></icon>
     <input class="search-content" placeholder-class="search-placeholder" bindinput="bindSearchInput" placeholder="电子书.." value="{{searchValue}}" />
@@ -9,7 +9,7 @@
     </block>
     <text class="search-start" bindtap="bindSearchStart">搜索</text>
   </view>
-  <view class="session-book">
+  <scroll-view scroll-y class="session-book">
     <block wx:for="{{result.subjects}}" wx:for-item="item">
       <view class="book-wrapper" data-id="{{item.id}}" bindtap="handletap">
         <view class="book-content">
@@ -47,5 +47,5 @@
         </view>
       </view>
     </block>
-  </view>
+  </scroll-view>
 </view>

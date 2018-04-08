@@ -23,4 +23,8 @@ urlpatterns = [
             views.EbookFreeView.as_view(),
             name='ebook_free_view',
             ),
+    re_path(r'^push/$',
+            views.EbookPushView.as_view(),
+            name='ebook_push_view',
+            ),
 ]
