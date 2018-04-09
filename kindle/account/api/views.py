@@ -10,8 +10,8 @@ from utils.WXBizDataCrypt import WXBizDataCrypt
 from account.models import Account
 from account.api.serializers import AccountSerializer
 
-APP_ID = 'wxe1c4c468ccfcf47c'
-APP_SECRET = '12a2531abbea92bd42755d40c4738af5'
+from kindle.private_settings import APP_ID, APP_SECRET
+
 api = WXAPPAPI(appid=APP_ID, app_secret=APP_SECRET)
 rclient = redis.Redis()
 
