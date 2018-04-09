@@ -10,8 +10,8 @@ from utils.WXBizDataCrypt import WXBizDataCrypt
 from account.models import Account
 from account.api.serializers import AccountSerializer
 
-APP_ID = 'wxe1c4c468ccfcf47c'
-APP_SECRET = '12a2531abbea92bd42755d40c4738af5'
+from kindle.private_settings import APP_ID, APP_SECRET
+
 api = WXAPPAPI(appid=APP_ID, app_secret=APP_SECRET)
 rclient = redis.Redis()
 
@@ -47,6 +47,7 @@ class AccountKdLoginView(GenericAPIView):
             account = Account(
                 openId=user_info.get('openId'),
                 nickname=user_info.get('nickName'),
+                gender=str(user_info.get('gender')),
                 province=user_info.get('province'),
                 city=user_info.get('city'),
                 avatar=user_info.get('avatarUrl'),

@@ -1,6 +1,7 @@
 /* pages/search/search.wxss */
 page {
   background: url('http://127.0.0.1:8000/media/bg.jpg');
+  background-position: center;
   background-size: cover;  
   background-attachment: fixed;
 }
@@ -58,17 +59,13 @@ page {
 
 .session-book {
   padding: 10px;
-  width: 90%;
+  width: 100%;
 }
 
 .book-wrapper {
-  border: groove;
+  border-bottom: dotted gray;
   border-radius: 15px; 
-  margin-bottom: 10px;
-}
-
-.book-summary {
-  margin: 0px 10px 10px 10px;
+  margin-bottom: 25px;
 }
 
 .book-content {
@@ -77,36 +74,40 @@ page {
 }
 
 .poster {
-  width: 120px;
-  height: 120px;
+  width: 30%;
+  height: auto;
   margin-right: 10px;
 }
 
 .breif-intro {
-  width: 60%;
+  width: 70%;
   align-items: center;
 }
 
 .breif-intro .book-name {
   width: 100%;
   color: blue;
-  /* font-size: 16px; */
+  font-size: x-large; 
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .breif-intro .book-author {
-  width: 50%;
+  width: 80%;
   color: black;
   font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .book-info {
+
   display: flex;
 }
 
 .book-info .book-date {
   width: 60%;
-  color: gray;
+  color: orange;
   font-size: 18px;
 }
 
@@ -117,7 +118,4 @@ page {
   text-align: right;
 }
 
-.book-formats {
-  text-align: center;
-}
 

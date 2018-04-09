@@ -29,9 +29,6 @@
                 <text class="rate">{{item.rating}}</text>
               </view>
             </view>
-            <view class="book-formats">
-              <text class="format">{{item.formats}}</text>
-            </view>
             <!-- <view class="format-section">
               <picker bindchange="bindPickerChange" value="{{index}}" range="{{item.format}}">
                 <view class="picker">
@@ -40,10 +37,6 @@
               </picker>
             </view> -->
           </view>
-        </view>
-        <view class="book-summary">
-          简介：
-          <text class="summary">{{item.summary}}</text>
         </view>
       </view>
     </block>

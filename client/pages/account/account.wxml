@@ -10,8 +10,27 @@
         <view>
             <text class="userinfo-nickname">{{logged ? userInfo.nickname : '点击登录'}}</text>
         </view>
+        <view class='location'>
+          <text class="province" hidden='{{!logged}}'>{{userInfo.province}}</text>
+          <text class="city" hidden='{{!logged}}'>{{userInfo.city}}</text>
+        </view>
     </view>
-    <view class='userdata' bindtap='login'>
-      <text class='data-item' wx:for="{{userData}}" wx:key="k">{{item.v}}</text>
+    <view class='active-table'>
+      <view class="tr heading">
+        <view class="th">收藏</view>
+        <view class="th">推送</view>
+        <view class="th">贡献</view>
+      </view>
+      <view class="tr content">
+        <view class="td">{{logged ? userInfo.favors : '-'}}</view>
+        <view class="td">{{logged ? userInfo.pushes : '-'}}</view>
+        <view class="td">{{logged ? userInfo.contributes : '-'}}</view>
+      </view>
+    </view>
+    <view class='kindle-email'>
+      <text class='email' hidden='{{!logged}}'>{{userInfo.kindle_email ? userInfo.kindle_email : '还未设置推送邮箱'}}</text>
+    </view>
+    <view class='author'>
+      <text>@天才余先生</text>
     </view>
 </view>
