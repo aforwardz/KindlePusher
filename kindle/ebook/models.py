@@ -30,13 +30,30 @@ class Ebook(models.Model):
         verbose_name='作者',
         max_length=100,
     )
+    pages = models.PositiveIntegerField(
+        verbose_name='页数',
+        blank=True,
+        null=True
+    )
+    publisher = models.CharField(
+        verbose_name='出版者',
+        max_length=100,
+        blank=True,
+        default=''
+    )
     publish_date = models.DateField(
         verbose_name='出版日期',
         blank=True
     )
-    version = models.PositiveIntegerField(
+    edition = models.PositiveIntegerField(
         verbose_name='版本',
         default=1
+    )
+    languages = ArrayField(
+        models.CharField(max_length=10),
+        verbose_name='',
+        blank=True,
+        default=[]
     )
 
     contributor = models.CharField(
@@ -53,12 +70,16 @@ class Ebook(models.Model):
         default=''
     )
 
-    price = models.FloatField(
+    price = models.DecimalField(
         verbose_name='价格',
+        max_digits=10,
+        decimal_places=2,
         blank=True
     )
-    ebook_price = models.FloatField(
+    ebook_price = models.DecimalField(
         verbose_name='电子书价格',
+        max_digits=8,
+        decimal_places=2,
         blank=True
     )
 
@@ -69,13 +90,15 @@ class Ebook(models.Model):
         verbose_name='封面缩略图'
     )
 
-    rating = models.FloatField(
+    scores = models.DecimalField(
         verbose_name='评分',
+        max_digits=3,
+        decimal_places=1,
         blank=True,
         default=0.0
     )
 
-    source = models.CharField(
+    resource = models.CharField(
         verbose_name='资源',
         max_length=250
     )
@@ -92,6 +115,12 @@ class Ebook(models.Model):
 
     favors = models.IntegerField(
         verbose_name='收藏数',
+        blank=True,
+        default=0
+    )
+
+    wants = models.IntegerField(
+        verbose_name='需求数',
         blank=True,
         default=0
     )

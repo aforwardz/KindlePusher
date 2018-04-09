@@ -47,6 +47,7 @@ class AccountKdLoginView(GenericAPIView):
             account = Account(
                 openId=user_info.get('openId'),
                 nickname=user_info.get('nickName'),
+                gender=str(user_info.get('gender')),
                 province=user_info.get('province'),
                 city=user_info.get('city'),
                 avatar=user_info.get('avatarUrl'),

@@ -2,14 +2,15 @@
 
 page {
   background: url('http://127.0.0.1:8000/media/bg.jpg');
+  background-position: center;
   background-size: cover;  
   background-attachment: fixed;
 }
 
 .userinfo {
-    margin-top: 20rpx;
-    height: 300rpx;
-    width: 50%;
+    margin-top: 30rpx;
+    height: 30%;
+    width: 80%;
     /* background: #FFF; */
     border-left: none;
     border-right: none;
@@ -32,7 +33,76 @@ page {
     color: #007AFF;
 }
 
+.location {
+  width: 80%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.location text {
+  display: flex;
+  width: 45%;
+  color: #007AFF;
+  justify-content: center;
+  align-items: center;
+}
+
 .data-item {
   margin-top: 20rpx;
   align-items: row;
+}
+
+.active-table {
+  width: 100%;
+  height: 100px;
+  margin-top: 3rem;
+  border: 0px solid; 
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+}
+.td {
+    width:40%;
+    font-size: larger;
+    justify-content: center;
+    text-align: center;
+    /* border: 1px gray;
+    border-style: dotted none none none; */
+}
+.heading{
+   background: none; 
+}
+.content{
+  /* background: #E6F3F9; */
+}
+.th {
+  width: 40%;
+  justify-content: center;
+  color: #fff;
+  font-size: larger;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+
+.kindle-email {
+  margin-top: 4rem;
+  width: 80%;
+  height: 20px;
+  text-align: center;
+}
+
+.author {
+  width: 60%;
+  position: absolute;
+  bottom: 2px;
+  color: #fff;
+  font-size: small;
+  text-align: center;
 }
