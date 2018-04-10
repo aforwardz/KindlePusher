@@ -1,0 +1,32 @@
+<!--pages/ebook/ebook.wxml-->
+<view class="container">
+  <view class="decoration-wrapper">
+    <view class="decoration">
+      <text class="title">书目信息</text>
+    </view>
+  </view>
+  <scroll-view scroll-y class="ebook-container">
+    <view class="ebook-wrapper">
+      <view class="ebook-content">
+        <image class="poster" src="{{ebook.images}}"></image>
+        <view class="breif-intro">
+          <view class="ebook-name">
+            <text class="name">{{ebook.title}}</text>
+          </view>
+          <view class="ebook-author">
+            <text class="author">{{ebook.author}}</text>
+          </view>
+          <view class="ebook-info">
+            <view class="ebook-date">
+              <text class="publish_date">{{ebook.publish_date}}</text>
+            </view>
+            <view class="ebook-rate">
+              <text class="rate">{{ebook.rating}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+

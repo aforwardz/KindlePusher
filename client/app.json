@@ -4,7 +4,8 @@
     "pages/search/search",
     "pages/classify/classify",
     "pages/account/account",
-    "pages/addCgi/addCgi"
+    "pages/addCgi/addCgi",
+    "pages/ebook/ebook"
   ],
   "window": {
     "backgroundTextStyle": "light",
