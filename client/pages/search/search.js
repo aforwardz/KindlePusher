@@ -1,5 +1,7 @@
 // pages/home/search/search.js
 var app = getApp();
+var ebook_api = getApp().ebook_service
+var util = require('../../utils/util.js')
 Page({
 
   /**
@@ -118,11 +120,9 @@ Page({
   /** 提交搜索请求 */
   handleSearchData: function (value) {
     var that = this;
-    var serchURL = app.globalData.doubanBase + app.globalData.search + value + "&&start=0&&count=10";
+    var serchURL = ebook_api.SEARCH_API + '?search=' + value;
     wx.request({
       url: serchURL,
-      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      header: { 'content-type': 'json' }, // 设置请求的 header
       success: function (res) {
         // success
         var data = res.data;
@@ -169,10 +169,10 @@ Page({
     this.setData(readyData);
   },
   /** 点击进入搜索条目 */
-  handletap: function (event) {
+  viewBook: function (event) {
     var id = event.currentTarget.dataset.id;
-    wx.redirectTo({
-      url: '/pages/movie/movie-detail/movie-detail?id=' + id
+    wx.navigateTo({
+      url: '/pages/ebook/ebook?id=' + id.toString()
     })
   },
 

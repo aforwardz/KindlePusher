@@ -1,0 +1,23 @@
+/* pages/ebook/ebook.wxss */
+page {
+  background: url('http://127.0.0.1:8000/media/bg.jpg');
+  background-position: center;
+  background-size: cover;  
+  background-attachment: fixed;
+}
+
+.decoration-wrapper {
+  width: 100%;
+  height: 50px;
+}
+
+.decoration {
+  text-align: center
+}
+
+.decoration .title {
+  font-size: 30px;
+  color: white;
+  font-weight: 900;
+}
+

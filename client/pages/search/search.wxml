@@ -11,7 +11,7 @@
   </view>
   <scroll-view scroll-y class="session-book">
     <block wx:for="{{result.subjects}}" wx:for-item="item">
-      <view class="book-wrapper" data-id="{{item.id}}" bindtap="handletap">
+      <view class="book-wrapper" data-id="{{item.id}}" bindtap="viewBook">
         <view class="book-content">
           <image class="poster" src="{{item.images}}"></image>
           <view class="breif-intro">
@@ -19,7 +19,7 @@
               <text class="name">{{item.title}}</text>
             </view>
             <view class="book-author">
-              <text class="author">{{item.directors}}</text>
+              <text class="author">{{item.author}}</text>
             </view>
             <view class="book-info">
               <view class="book-date">

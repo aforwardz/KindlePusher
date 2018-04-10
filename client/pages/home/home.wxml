@@ -9,7 +9,7 @@
     <view class="latest">
       <view class="title">最新上线</view>
       <block wx:for="{{latests}}" wx:for-item="item">
-       <view class="latest-wrapper">
+       <view class="latest-wrapper" data-id='{{item.id}}' bindtap='viewEbook'>
           <view class="latest-name">
             <text>{{item.name}}</text>
           </view>
@@ -24,7 +24,7 @@
     <view class="recommend">
       <view class="title">今日推荐</view>
       <block wx:for="{{recommends}}" wx:for-item="item">
-       <view class="recommend-wrapper">
+       <view class="recommend-wrapper" data-id='{{item.id}}' bindtap='viewEbook'>
         <view class="recommend-name">
           <text>{{item.name}}</text>
         </view>
@@ -39,7 +39,7 @@
     <view class="rank">
       <view class="title">排行榜</view>
       <block wx:for="{{ranks}}" wx:for-item="item">
-       <view class="rank-wrapper">
+       <view class="rank-wrapper" data-id='{{item.id}}' bindtap='viewEbook'>
         <view class="rank-name">
           <text>{{item.name}}</text>
         </view>
@@ -54,7 +54,7 @@
     <view class="free">
       <view class="title">免费专区</view>
       <block wx:for="{{frees}}" wx:for-item="item">
-       <view class="free-wrapper">
+       <view class="free-wrapper" data-id='{{item.id}}' bindtap='viewEbook'>
         <view class="free-name">
           <text>{{item.name}}</text>
         </view>
