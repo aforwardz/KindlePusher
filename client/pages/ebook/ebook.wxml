@@ -8,23 +8,58 @@
   <scroll-view scroll-y class="ebook-container">
     <view class="ebook-wrapper">
       <view class="ebook-content">
-        <image class="poster" src="{{ebook.images}}"></image>
-        <view class="breif-intro">
+        <image class="poster" src="{{ebook.poster}}" background-size="cover"></image>
+        <view class="info">
           <view class="ebook-name">
             <text class="name">{{ebook.title}}</text>
           </view>
           <view class="ebook-author">
             <text class="author">{{ebook.author}}</text>
           </view>
-          <view class="ebook-info">
-            <view class="ebook-date">
-              <text class="publish_date">{{ebook.publish_date}}</text>
-            </view>
-            <view class="ebook-rate">
-              <text class="rate">{{ebook.rating}}</text>
-            </view>
+          <view class="ebook-date">
+            <text class="publish_date">{{ebook.publish_date}}</text>
+          </view>
+          <view class="ebook-rate">
+            <text class="rate">{{ebook.rating}}</text>
           </view>
         </view>
+      </view>
+      <view class='intro'>
+        <text class='ebook-intro'>{{ebook.intro}}</text>
+      </view>
+      <view class='popularity-wrapper'>
+        <view class='popularity-table'>
+          <view class="tr heading">
+            <view class="th">强推</view>
+            <view class="th">想看</view>
+            <view class="th">推送</view>
+          </view>
+          <view class="tr content">
+            <view class="td">{{ebook.favors}}</view>
+            <view class="td">{{ebook.wants}}</view>
+            <view class="td">{{ebook.pushes}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='resource-wrapper'>
+       <view class='ebook-resource'>
+        <view class='resource-status' wx:if='{{!ebook.resource_status}}'>
+         暂无资源，敬请期待！
+        </view>
+        <block wx:for="{{ebook.resource}}" wx:for-item="resource">
+          <view class="resource-content" data-id='{{resource.id}}'>
+            <view class="resource-name">
+              <text>{{resource.resource_name}}</text>
+            </view>
+            <view class="resource-format">
+              <text>{{resource.format}}</text>
+            </view>
+            <view class='resource-push'>
+              <button bindtap='pushEbook'>推送</button>
+            </view>
+          </view>
+        </block>
+       </view>
       </view>
     </view>
   </scroll-view>

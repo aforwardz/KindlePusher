@@ -21,3 +21,23 @@ page {
   font-weight: 900;
 }
 
+.ebook-container {
+  width: 100%;
+}
+
+.ebook-wrapper {
+  width: 95%;
+}
+
+.ebook-content {
+
+}
+
+.ebook-content .poster {
+  width: 50%;
+  height: auto;
+}
+
+.ebook-content .info {
+  width: 50%;
+}

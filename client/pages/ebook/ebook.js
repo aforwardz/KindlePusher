@@ -8,11 +8,11 @@ Page({
    */
   data: {
     ebookId: '',
-    ebook: { id: 1, title: 'test1', author: 'ycw', publish_date: '2018-02-12', rating: 8.8, ranking: 1 }
+    ebook: { id: 1, title: 'test1', author: 'ycw', publish_date: '2018-02-12', poster: '../../assets/images/kindle_default.png', rating: 8.8, ranking: 1 }
   },
 
   searchEbook: function (id) {
-    util.showBusy('正在卖力获取书目')
+    util.showBusy('正在卖力取书')
     var that = this
     wx.request({
       url: ebook_api.RETRIEVE_API + id,
