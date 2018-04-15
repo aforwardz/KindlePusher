@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/ebook/ebook",
     "pages/home/home",
     "pages/search/search",
     "pages/classify/classify",
     "pages/account/account",
-    "pages/addCgi/addCgi"
+    "pages/addCgi/addCgi",
+    "pages/ebook/ebook"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,7 +19,7 @@
     "selectedColor": "#007AFF",
     "list": [
       {
-        "pagePath": "pages/ebook/ebook",
+        "pagePath": "pages/home/home",
         "text": "源起",
         "iconPath": "assets/images/book_default.png",
         "selectedIconPath": "assets/images/book_active.png"

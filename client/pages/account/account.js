@@ -1,6 +1,5 @@
 // pages/account/account.js
-var qcloud = require('../../vendor/wafer2-client-sdk/index')
-var config = require('../../config')
+var ebook_api = getApp().ebook_service
 var util = require('../../utils/util.js')
 
 Page({
@@ -13,7 +12,7 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
-    userData: [{k:'pushed', v: 0}, {k: 'test', v: 3}]
+    userData: []
   },
 
   // 用户登录示例
@@ -28,7 +27,7 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'http://127.0.0.1:8000/api/account/wxlogin/',
+            url: ebook_api.WXLOGIN_API,
             data: {
               code: res.code
             },
@@ -40,7 +39,7 @@ Page({
                   success: function (userRes) {
                     console.log(userRes)
                     wx.request({
-                      url: 'http://127.0.0.1:8000/api/account/kdlogin/',
+                      url: ebook_api.KDLOGIN_API,
                       data: {
                         encryptedData: userRes.encryptedData,
                         iv: userRes.iv
@@ -53,9 +52,13 @@ Page({
                           userInfo: kdRes.data,
                           logged: true
                         })
+                        wx.setStorage({
+                          key: "email",
+                          data: kdRes.data.kindle_email
+                        })
                       },
                       fail: function (kdRes) {
-                        util.showFail('登录失败')
+                        util.showModal('错误', '登录失败')
                         console.log(kdRes)
                       }
                     })
@@ -69,51 +72,69 @@ Page({
         }
       }
     })
+  },
 
-    // 调用登录接口
-    // qcloud.login({
-    //   success(result) {
-    //     if (result) {
-    //       util.showSuccess('登录成功')
-    //       console.log(result)
-    //       that.setData({
-    //         userInfo: result,
-    //         logged: true
-    //       })
-    //     } else {
-    //       // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
-    //       qcloud.request({
-    //         url: config.service.requestUrl,
-    //         login: true,
-    //         success(result) {
-    //           util.showSuccess('登录成功')
-    //           console.log(result.data.data)
-    //           that.setData({
-    //             userInfo: result.data.data,
-    //             logged: true
-    //           })
-    //         },
+  validateEmail: function (email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    return re.test(String(email).toLowerCase())
+  },
 
-    //         fail(error) {
-    //           util.showModel('请求失败', error)
-    //           console.log('request fail', error)
-    //         }
-    //       })
-    //     }
-    //   },
-
-    //   fail(error) {
-    //     util.showModel('登录失败', error)
-    //     console.log('登录失败', error)
-    //   }
-    // })
+  setKindleEmail: function (event) {
+    if (this.validateEmail(event.detail.value)) {
+      var that = this
+      wx.showModal({
+        title: '确认',
+        content: '将' + event.detail.value + '设置成推送邮箱？',
+        success: function (res) {
+          if (res.confirm) {
+            var uData = {
+              id: that.data.userInfo.id,
+              nickname: that.data.userInfo.nickname,
+              kindle_email: event.detail.value
+            }
+            wx.request({
+              url: ebook_api.EMAIL_API,
+              method: 'PUT',
+              data: uData,
+              success: function (res) {
+                util.showSuccess('设置成功')
+                that.setData({
+                  userInfo: res.data
+                })
+                wx.setStorage({
+                  key: "email",
+                  data: res.data.kindle_email
+                })
+              },
+              fail: function (res) {
+                util.showModal('错误', '推送邮箱设置失败')
+                console.log(kdRes)
+              }
+            })
+          }
+        }
+      })
+    } else {
+      util.showModal('验证失败', '邮箱格式有误')
+    }    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.checkSession({
+      success: function (data) {
+        console.log(data)
+        // wx.setStorage({
+        //   key: 'session_key',
+        //   data: '',
+        // })
+      },
+      fail: function (data) {
+        console.log(data)
+      }
+    })
   },
 
   /**

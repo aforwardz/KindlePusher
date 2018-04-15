@@ -4,40 +4,187 @@ page {
   background-position: center;
   background-size: cover;  
   background-attachment: fixed;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
-.decoration-wrapper {
+.name-wrapper {
   width: 100%;
   height: 50px;
 }
 
-.decoration {
+.ebook-name {
   text-align: center
 }
 
-.decoration .title {
+.ebook-name .name {
   font-size: 30px;
   color: white;
   font-weight: 900;
 }
 
-.ebook-container {
+.ebook-wrapper {
   width: 100%;
 }
 
-.ebook-wrapper {
-  width: 95%;
-}
-
 .ebook-content {
-
+  margin: 15px;
+  display: flex;
 }
 
-.ebook-content .poster {
+.ebook-poster {
   width: 50%;
-  height: auto;
+  margin-right: 10px;
 }
 
-.ebook-content .info {
-  width: 50%;
+.ebook-poster .poster {
+  width: 150px;
+  height: 200px;
+}
+
+.ebook-content .ebook-info {
+  font-weight: bold;
+  width: 50%; 
+  display: inline-block
+}
+
+.ebook-info .ebook-en_name {
+  font-size: larger;
+  color: white;
+  text-align: center;
+}
+
+.ebook-info .ebook-author {
+  font-size: large;
+  text-align: center;
+}
+/* .ebook-info .ebook-type {
+  font-size: large;
+  text-align: center;
+} */
+
+.ebook-info .ebook-issue {
+  /* font-size: larger; */
+  color: white;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.ebook-info .ebook-scores {
+  /* font-size: larger; */
+  color: red;
+  margin-top: 5px;
+  margin-right: 15px;
+}
+
+.ebook-info .ebook-free {
+  text-align: center;
+}
+
+.ebook-info .free {
+  color: white;
+  background-color: green;
+  width: 44px; 
+  text-align: center;
+}
+
+.intro {
+  margin: 15px;
+  padding-bottom: 10px;
+  border-bottom: dotted 2px gray;
+}
+
+.intro .intro-title {
+  width: 100%;
+  font-weight: bold;
+}
+
+.popularity-table {
+  width: 100%;
+  margin-top: 1rem;
+  border: 0px solid; 
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 2rem;
+  align-items: center;
+}
+.td {
+    width:40%;
+    font-size: larger;
+    justify-content: center;
+    text-align: center;
+    /* border: 1px gray;
+    border-style: dotted none none none; */
+}
+.heading{
+   background: none; 
+}
+.content{
+  /* background: #E6F3F9; */
+}
+.th {
+  width: 40%;
+  justify-content: center;
+  color: #fff;
+  font-size: larger;
+  display: flex;
+  height: 2rem;
+  align-items: center;
+}
+
+.resource-wrapper {
+  width: 100%;
+}
+
+.ebook-resource {
+  margin: 15px;
+}
+
+.ebook-resource .resource-status {
+  text-align: center;
+  opacity: 0.5;
+}
+
+.resource-status .status {
+  border: solid 2px gray;
+}
+
+.resource-content {
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  border-top: dotted 2px gray;
+  display: inline-flex;
+}
+
+.ebook-resource .resource-title {
+  width: 40%;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.resource-content .resource-name {
+  width: 40%;
+  font-weight: bold;
+}
+
+.resource-content .resource-size {
+  width: 20%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.resource-content .resource-format {
+  width: 20%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.resource-content .resource-push {
+   font-size: 18px;
+   height: 28px;
+   line-height: 1.7; 
 }

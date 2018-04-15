@@ -22,29 +22,33 @@ page {
   margin: 24rpx 15rpx;
 }
 
+.search-tab {
+  margin-left: 1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 83%;
+  display: inline-flex;
+}
+
 .search-content {
   background-color: white; 
-  flex: 1;
-  margin-left: 1rpx;
-  margin-top: 8rpx;
   color: #4a4a4a;
   font-size: 28rpx;
-  height: 80%;
+  height: 100%;
   padding-left: 5px;
+  width: 100%;
 }
 
 .search-placeholder {
   color: #9e9e9e;
   font-size: 28rpx;
+  /* height: 80%; */
   /* margin-left: 5px; */
 }
 
 .search-clear {
   background-color: white;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  padding-top: 6px;
-  width: 7%;
+  padding: 7px 4px 0 4px;
 }
 
 .search-start {
@@ -74,8 +78,8 @@ page {
 }
 
 .poster {
-  width: 30%;
-  height: auto;
+  width: 100px;
+  height: 120px;
   margin-right: 10px;
 }
 

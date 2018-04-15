@@ -1,2 +1,0 @@
-APP_ID = 'wxe1c4c468ccfcf47c'
-APP_SECRET = '12a2531abbea92bd42755d40c4738af5'
