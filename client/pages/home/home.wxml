@@ -29,7 +29,7 @@
           <text>{{item.name}}</text>
         </view>
         <view class="recommend-rating">
-          <text>{{item.rating}}</text>
+          <text>{{item.id}}</text>
         </view>
        </view>
       </block>
@@ -44,7 +44,7 @@
           <text>{{item.name}}</text>
         </view>
         <view class="rank-ranking">
-          <text>{{item.ranking}}</text>
+          <text>{{item.scores}}</text>
         </view>
        </view>
       </block>

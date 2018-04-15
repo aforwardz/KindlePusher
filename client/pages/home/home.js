@@ -6,10 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    latests: [{id: 1, name: 'test1', create_time: '2018-02-12' }, {id: 2, name: 'test2', create_time: '2018-02-12' }],
-    recommends: [{ name: 'test3', rating: 8.8 }, { name: 'test4', rating: 8.8 }],
-    ranks: [{ name: 'test5', ranking: 1 }, { name: 'test6', ranking: 3 }],
-    frees: [{ name: 'test7' }, { name: 'test8' }]
+    latests: [],
+    recommends: [],
+    ranks: [],
+    frees: []
   },
 
   loadLatest: function () {
@@ -80,7 +80,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.loadLatest(),
+    this.loadLatest(),
     this.loadRecommend(),
     this.loadRank(),
     this.loadFree()

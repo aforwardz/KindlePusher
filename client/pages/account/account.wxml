@@ -27,8 +27,9 @@
         <view class="td">{{logged ? userInfo.contributes : '-'}}</view>
       </view>
     </view>
-    <view class='kindle-email'>
-      <text class='email' hidden='{{!logged}}'>{{userInfo.kindle_email ? userInfo.kindle_email : '还未设置推送邮箱'}}</text>
+    <view class='kindle-email' hidden='{{!logged}}'>
+      <input wx:if='{{userInfo.kindle_email.length == 0}}' type='text' placeholder='点击设置推送邮箱' bindconfirm='setKindleEmail'></input>
+      <text class='email' wx:else>{{userInfo.kindle_email}}</text>
     </view>
     <view class='author'>
       <text>@天才余先生</text>

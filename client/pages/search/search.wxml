@@ -3,10 +3,10 @@
   <!-- <image class="bg" src="../../assets/images/bg2.jpg"></image>  -->
   <view class="session-search">
     <icon class="search-icon" type="search" size="16"></icon>
-    <input class="search-content" placeholder-class="search-placeholder" bindinput="bindSearchInput" placeholder="电子书.." value="{{searchValue}}" />
-    <block wx:if="{{showClear}}">
-      <icon class="search-clear" type="cancel" bindtap="bindSearchClear" color="gray" size="20"></icon>
-    </block>
+    <view class='search-tab'>
+      <input class="search-content" placeholder-class="search-placeholder" bindinput="bindSearchInput" placeholder="电子书.." value="{{searchValue}}" />
+      <icon class="search-clear" hidden="{{!showClear}}" type="cancel" bindtap="bindSearchClear" color="gray" size="20"></icon>
+    </view>
     <text class="search-start" bindtap="bindSearchStart">搜索</text>
   </view>
   <scroll-view scroll-y class="session-book">
@@ -23,10 +23,10 @@
             </view>
             <view class="book-info">
               <view class="book-date">
-                <text class="date">{{item.year}}</text>
+                <text class="date">{{item.issue_date}}</text>
               </view>
               <view class="book-rate">
-                <text class="rate">{{item.rating}}</text>
+                <text class="rate">{{item.scores}}</text>
               </view>
             </view>
             <!-- <view class="format-section">

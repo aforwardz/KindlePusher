@@ -29,7 +29,7 @@ var showSuccess = text => wx.showToast({
 })
 
 // 显示失败提示
-var showModel = (title, content) => {
+var showModal = (title, content) => {
     wx.hideToast();
 
     wx.showModal({
@@ -39,4 +39,4 @@ var showModel = (title, content) => {
     })
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel }
+module.exports = { formatTime, showBusy, showSuccess, showModal }

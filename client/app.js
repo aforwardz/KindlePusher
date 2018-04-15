@@ -24,11 +24,17 @@ App({
     },
     ebook_service: {
       API_BASE,
+      WXLOGIN_API: `${API_BASE}/account/wxlogin/`,
+      KDLOGIN_API: `${API_BASE}/account/kdlogin/`,
+      EMAIL_API: `${API_BASE}/account/email/`,
+
       RETRIEVE_API: `${API_BASE}/ebook/`,
       LATEST_API: `${API_BASE}/ebook/latest/`,
       RECOMMEND_API: `${API_BASE}/ebook/recommend/`,
       RANK_API: `${API_BASE}/ebook/rank/`,
       FREE_API: `${API_BASE}/ebook/free/`,
-      SEARCH_API: `${API_BASE}/ebook/search/`
+
+      SEARCH_API: `${API_BASE}/ebook/search/`,
+      PUSH_API: `${API_BASE}/ebook/push/`,
     }
 })
