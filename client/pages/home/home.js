@@ -18,7 +18,6 @@ Page({
       url: ebook_api.LATEST_API,
       success: function (response) {
         var latest_data = response.data
-        console.log(response.data)
         if (latest_data) {
           that.setData({latests: latest_data})
         }
@@ -32,7 +31,6 @@ Page({
       url: ebook_api.RECOMMEND_API,
       success: function (response) {
         var recommend_data = response.data
-        console.log(response.data)
         if (recommend_data) {
           that.setData({ recommends: recommend_data })
         }
@@ -46,7 +44,6 @@ Page({
       url: ebook_api.RANK_API,
       success: function (response) {
         var rank_data = response.data
-        console.log(response.data)
         if (rank_data) {
           that.setData({ ranks: rank_data })
         }
@@ -60,7 +57,6 @@ Page({
       url: ebook_api.FREE_API,
       success: function (response) {
         var free_data = response.data
-        console.log(response.data)
         if (free_data) {
           that.setData({ frees: free_data })
         }
@@ -69,7 +65,6 @@ Page({
   },
 
   viewEbook: function (e) {
-    console.log(e.currentTarget.dataset.id)
     var ebookId = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/ebook/ebook?id=' + ebookId.toString(),

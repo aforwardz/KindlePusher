@@ -33,11 +33,9 @@ Page({
             },
             success: function (wxRes) {
               util.showBusy('等待校验')
-              console.log(wxRes)
               if (wxRes.data.status == 'check') {
                 wx.getUserInfo({
                   success: function (userRes) {
-                    console.log(userRes)
                     wx.request({
                       url: ebook_api.KDLOGIN_API,
                       data: {
@@ -47,7 +45,6 @@ Page({
                       method: 'POST',
                       success: function (kdRes) {
                         util.showSuccess('登录成功')
-                        console.log(kdRes)
                         that.setData({
                           userInfo: kdRes.data,
                           logged: true
@@ -68,7 +65,7 @@ Page({
             }
           })
         } else {
-          console.log('登录失败！' + res.errMsg)
+          util.showModal('错误', '登录失败: ' + res.errMsg)
         }
       }
     })
