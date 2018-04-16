@@ -129,13 +129,6 @@ Page({
     })
   },
 
-  bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      format_index: e.detail.value
-    })
-  },
-
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

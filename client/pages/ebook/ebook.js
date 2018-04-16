@@ -18,12 +18,10 @@ Page({
       url: ebook_api.RETRIEVE_API + id + '/',
       success: function (response) {
         if (response.statusCode !== 200) {
-          console.log(response)
           util.showModal(response.statusCode.toString(), '书目获取失败')
         }
         else {
           util.showSuccess('获取成功')
-          console.log(response.data)
           that.setData({ebook: response.data})
         }
       },
@@ -35,7 +33,6 @@ Page({
   },
 
   pushEbook: function (e) {
-    console.log(e.currentTarget.dataset.id)
     var rId = e.currentTarget.dataset.id
     var rName = e.currentTarget.dataset.name
     try {

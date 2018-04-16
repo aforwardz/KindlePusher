@@ -1,11 +1,8 @@
 # global
-env/
-.idea/
-__pycache__/
 .DS_Store
 project.config.json
 
-# manipulator
-migrations/
+vendor/
+client/config.js
 logs/
 
