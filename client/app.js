@@ -2,19 +2,17 @@
 var qcloud = require('./vendor/wafer2-client-sdk/index')
 var config = require('./config')
 var util = require('./utils/util.js')
-var API_BASE = 'http://127.0.0.1:8000/api';
+var API_BASE = 'https://kindlepusher.cn/api';
 
 
 App({
     onLaunch: function () {
-        qcloud.setLoginUrl(config.service.loginUrl)
         wx.getSetting({
           success(res) {
             if (!res.authSetting['scope.userInfo']) {
               wx.authorize({
                 scope: 'scope.userInfo',
                 success() {
-                  // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
                   util.showSuccess('授权成功')
                 }
               })

@@ -1,4 +1,12 @@
 /**app.wxss**/
+page {
+  background: url('https://kindlepusher.cn/media/bg.jpg');
+  background-position: center;
+  background-size: cover;  
+  background-attachment: fixed;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
 .container {
   display: flex;
   flex-direction: column;
