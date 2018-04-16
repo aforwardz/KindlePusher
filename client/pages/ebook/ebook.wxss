@@ -1,12 +1,4 @@
 /* pages/ebook/ebook.wxss */
-page {
-  background: url('http://127.0.0.1:8000/media/bg.jpg');
-  background-position: center;
-  background-size: cover;  
-  background-attachment: fixed;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-}
-
 .name-wrapper {
   width: 100%;
   height: 50px;
