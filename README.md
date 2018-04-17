@@ -5,15 +5,15 @@
 
 直接上图吧：
 
-[home page](./client/assets/screencut/home.jpeg)
+![home page](./client/assets/screencut/home.jpeg)
 
-[search page](./client/assets/screencut/search.jpeg)
+![search page](./client/assets/screencut/search.jpeg)
 
-[detail1 page](./client/assets/screencut/detail1.jpeg)
+![detail1 page](./client/assets/screencut/detail1.jpeg)
 
-[detail2 page](./client/assets/screencut/detail2.jpeg)
+![detail2 page](./client/assets/screencut/detail2.jpeg)
 
-[account page](./client/assets/screencut/account.jpeg)
+![account page](./client/assets/screencut/account.jpeg)
 
 
 
