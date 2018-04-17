@@ -5,16 +5,15 @@
 
 直接上图吧：
 
-![home page](./client/assets/screencut/home.jpeg)
+<img src="./client/assets/screencut/home.jpeg" height = "500" alt="home" align=center />
 
-![search page](./client/assets/screencut/search.jpeg)
+<img src="./client/assets/screencut/search.jpeg" height = "500" alt="search" align=center />
 
-![detail1 page](./client/assets/screencut/detail1.jpeg)
+<img src="./client/assets/screencut/detail1.jpeg" height = "500" alt="detail1" align=center />
 
-![detail2 page](./client/assets/screencut/detail2.jpeg)
+<img src="./client/assets/screencut/detail2.jpeg" height = "500" alt="detail2" align=center />
 
-![account page](./client/assets/screencut/account.jpeg)
-
+<img src="./client/assets/screencut/account.jpeg" height = "500" alt="account" align=center />
 
 
 直男审美不忍直视´_>`
