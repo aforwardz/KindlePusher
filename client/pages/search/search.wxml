@@ -13,7 +13,7 @@
     <block wx:for="{{result.subjects}}" wx:for-item="item">
       <view class="book-wrapper" data-id="{{item.id}}" bindtap="viewBook">
         <view class="book-content">
-          <image class="poster" src="{{item.images}}"></image>
+          <image class="poster" src="{{item.poster}}"></image>
           <view class="breif-intro">
             <view class="book-name">
               <text class="name">{{item.title}}</text>

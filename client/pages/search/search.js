@@ -57,9 +57,8 @@ Page({
     var readyData = { showClear: false };
     if (value.length > 0) {
       readyData = { showClear: true , searchValue: value};
-      // this.handleSearchData(value);
+      this.setData(readyData);
     }
-    this.setData(readyData);
   },
   /**清空输入框 */
   bindSearchClear: function (event) {
@@ -68,7 +67,8 @@ Page({
   },
   /**点击搜索 */
   bindSearchStart: function (event) {
-    this.handleSearchData(this.searchValue)
+    util.showBusy('正在搜索')
+    this.handleSearchData(this.data.searchValue)
   },
   /** 提交搜索请求 */
   handleSearchData: function (value) {
@@ -79,48 +79,24 @@ Page({
       success: function (res) {
         // success
         var data = res.data;
-        that.processSearchData(data);
+        console.log(data)
+        if (data) {
+          util.showSuccess('搜索成功')
+          that.setData({result: {subjects: data}})
+        } else {
+          util.showModal('抱歉', '暂无相关书籍')
+        }
       },
-      fail: function () {
+      fail: function (res) {
         // fail
+        util.showModal('失败', res.body.detail)
       },
       complete: function () {
         // complete
       }
     });
   },
-  /**组装搜索数据 */
-  processSearchData: function (data) {
-    var books = [];
-    for (let idx in data.subjects) {
-      var subject = data.subjects[idx];
-      var directors = "";
-      var separate = " / ";
-      for (let i in subject.directors) {
-        directors += subject.directors[i].name + separate;
-      }
-      directors = directors.substring(0, directors.length - separate.length);
-      var summary = subject.rating.average + "分" + separate + subject.year + separate + directors;
-      var temp = {
-        id: subject.id,
-        casts: subject.casts,
-        collect_count: subject.collect_count,
-        directors: subject.directors,
-        title: subject.title,
-        images: subject.images,
-        rating: subject.rating,
-        year: subject.year,
-        summary: summary
-      };
-      books.push(temp);
-    }
-    var readyData = {};
-    readyData["result"] = {
-      subjects: books
-    }
-
-    this.setData(readyData);
-  },
+ 
   /** 点击进入搜索条目 */
   viewBook: function (event) {
     var id = event.currentTarget.dataset.id;
