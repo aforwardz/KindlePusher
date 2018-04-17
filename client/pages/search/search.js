@@ -96,38 +96,6 @@ Page({
       }
     });
   },
-  /**组装搜索数据 */
-  processSearchData: function (data) {
-    var books = [];
-    for (let idx in data.subjects) {
-      var subject = data.subjects[idx];
-      var directors = "";
-      var separate = " / ";
-      for (let i in subject.directors) {
-        directors += subject.directors[i].name + separate;
-      }
-      directors = directors.substring(0, directors.length - separate.length);
-      var summary = subject.rating.average + "分" + separate + subject.year + separate + directors;
-      var temp = {
-        id: subject.id,
-        casts: subject.casts,
-        collect_count: subject.collect_count,
-        directors: subject.directors,
-        title: subject.title,
-        images: subject.images,
-        rating: subject.rating,
-        year: subject.year,
-        summary: summary
-      };
-      books.push(temp);
-    }
-    var readyData = {};
-    readyData["result"] = {
-      subjects: books
-    }
-
-    this.setData(readyData);
-  },
  
   /** 点击进入搜索条目 */
   viewBook: function (event) {
