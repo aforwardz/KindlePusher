@@ -1,93 +1,178 @@
 /* pages/ebook/ebook.wxss */
-.name-wrapper {
+.poster-wrapper {
   width: 100%;
-  height: 50px;
-}
-
-.ebook-name {
-  text-align: center
-}
-
-.ebook-name .name {
-  font-size: 30px;
-  color: white;
-  font-weight: 900;
-}
-
-.ebook-wrapper {
-  width: 100%;
-}
-
-.ebook-content {
-  margin: 15px;
-  display: flex;
+  background-color: #40E0D0;
 }
 
 .ebook-poster {
   width: 50%;
-  margin-right: 10px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
 }
 
-.ebook-poster .poster {
+.ebook-poster image {
   width: 150px;
   height: 200px;
+  margin: 20px;
+}
+
+.ebook-wrapper {
+  /* background: #EDEDED; */
+}
+
+.ebook-title {
+  width: 95%;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  display: inline-flex;
+  background: #EDEDED;
+}
+
+.ebook-title .pin {
+  width: 10%
+}
+
+.ebook-title .pin image {
+  width: 30px;
+  height: 30px;
+  margin-top:0.2rem;
+}
+
+.ebook-title .ebook-name {
+  width: 70%;
+  font-size:25px;
+  font-weight:bolder;
+}
+
+.ebook-name .ebook-free {
+  width: 50%;
+  text-align: center;
+}
+
+.ebook-name .ebook-free image {
+  width: 60px;
+  height: 60px;
+}
+
+.ebook-title .ebook-scores {
+  width: 20%;
+  height: 100px;
+  box-shadow:4px 4px 15px gray;
+  background: white;
+}
+
+.ebook-scores .scores-title {
+  width: 100%;
+  height: 30%;
+  text-align: center;
+  font-weight: bold;
+  line-height:2;
+}
+
+.ebook-scores .scores {
+  width: 100%;
+  height: 70%;
+  text-align: center;
+  font-weight: bold;
+  color:orange;
+  font-size:30px;
+  line-height:2.2
+}
+
+.ebook-content {
+  margin-top: 15px;
+  display: flex;
+  width: 100%;
+}
+
+.ebook-content .content-title {
+  width: 30px;
+}
+
+.content-title image {
+  width: 30px;
+  height: 30px;
+  margin-top:0.2rem;
+
 }
 
 .ebook-content .ebook-info {
   font-weight: bold;
-  width: 50%; 
+  width: 100%; 
   display: inline-block
 }
 
-.ebook-info .ebook-en_name {
-  font-size: larger;
-  color: white;
-  text-align: center;
+.ebook-info .info-title {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
 }
 
-.ebook-info .ebook-author {
-  font-size: large;
-  text-align: center;
-}
-/* .ebook-info .ebook-type {
-  font-size: large;
-  text-align: center;
-} */
-
-.ebook-info .ebook-issue {
-  /* font-size: larger; */
-  color: white;
-  text-align: center;
+.info {
   margin-bottom: 5px;
 }
 
-.ebook-info .ebook-scores {
-  /* font-size: larger; */
-  color: red;
-  margin-top: 5px;
-  margin-right: 15px;
+.ebook-info .author {
+  font-size: 24px;
+  margin-left: 20px;
 }
 
-.ebook-info .ebook-free {
-  text-align: center;
+.ebook-info .issue_date {
+  font-size: 22px;
+  margin-left: 20px;
 }
 
-.ebook-info .free {
-  color: white;
-  background-color: green;
-  width: 44px; 
-  text-align: center;
+.ebook-info .type {
+  font-size: 22px;
+  margin-left: 20px;
+}
+
+.ebook-info .price {
+  font-size: 22px;
+  margin-left: 20px;
+}
+
+.ebook-info .eprice {
+  font-size: 22px;
+  margin-left: 20px;
 }
 
 .intro {
-  margin: 15px;
+  margin-top: 15px;
   padding-bottom: 10px;
   border-bottom: dotted 2px gray;
 }
 
-.intro .intro-title {
+.intro-title {
   width: 100%;
+  display: inline-flex;
+}
+
+.intro-title image {
+  width: 30px;
+  height: 30px;
+}
+
+.intro-title .title {
+  width: 90%;
+  margin-left: 3px;
+  text-align: left;
+  font-size: 22px;
+  color: black;
   font-weight: bold;
+}
+.intro-title .title text{
+  border-bottom: 1px solid #1296db;
+}
+
+.ebook-intro {
+  width: 95%;
+}
+
+.ebook-intro .intro-content {
+  height: 100px;
 }
 
 .popularity-table {
@@ -119,8 +204,8 @@
 .th {
   width: 40%;
   justify-content: center;
-  color: #fff;
   font-size: larger;
+  font-weight: bold;
   display: flex;
   height: 2rem;
   align-items: center;

@@ -12,6 +12,20 @@ Page({
     frees: []
   },
 
+  scrollTo: function (e) {
+    var t = e.currentTarget.id
+    var t_id = '#' + t.replace('index', 'part')
+    var query = wx.createSelectorQuery()
+    query.select(t_id).boundingClientRect()
+    query.exec(function (res) {
+      if (res[0] !== null) {
+        wx.pageScrollTo({
+          scrollTop: res[0].top,
+        })
+      }
+    })
+  },
+
   loadLatest: function () {
     var that = this;
     wx.request({
@@ -31,6 +45,7 @@ Page({
       url: ebook_api.RECOMMEND_API,
       success: function (response) {
         var recommend_data = response.data
+        console.log(recommend_data)
         if (recommend_data) {
           that.setData({ recommends: recommend_data })
         }

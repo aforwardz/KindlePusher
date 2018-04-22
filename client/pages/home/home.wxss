@@ -1,8 +1,8 @@
 /* pages/home/home.wxss */
 .decoration-wrapper {
   width: 100%;
-  height: 50px;
-  /* background-color: #1296db; */
+  /* height: 140px; */
+  background-color: #C7F2E4; 
 }
 
 .decoration {
@@ -15,123 +15,189 @@
   font-weight: 900;
 }
 
-.latest-container {
-  width: 90%;
+.menu-wrapper {
+  margin-top: 5px;
+  width: 100%;
+  height: 80px;
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+.menu-wrapper .menu-icon {
+  width: 50px;
+  height: 80px;
+} 
+
+.home-container {
+  width: 100%;
   margin-top: 1rem;
 }
 
-.latest-container .title {
-  text-align: center;
-  font-size: 25px;
-  color: white;
-  border-bottom: 2px solid gray;
+.pin-bar {
+  width: 100%;
+  display: inline-flex;
 }
 
-.latest-container .latest-wrapper {
+.pin-bar image {
+  margin: 2px;
+}
+
+.pin-bar .title {
+  width: 90%;
+  margin-left: 2px;
+  text-align: left;
+  font-size: 22px;
+  color: black;
+  font-weight: bolder;
+  line-height: 1.6;
+}
+.pin-bar .title text{
+  border-bottom: 1px solid #1296db;
+}
+
+.latest-wrapper {
   width: 100%;
   display: inline-flex;
   padding: 6px 4px;
-  border-bottom: 1px dotted white;
+  border-bottom: 1px dotted gray;
 }
 
-.latest-wrapper .latest-name {
-  width: 60%;
+.poster-thumb {
+  width: 150px;
+  height: 150px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.latest-info {
+  width: 100%;
+  margin-right: 20px;
+}
+
+.latest-info .latest-name {
   font-size: 20px;
-  color: white;
-}
-
-.latest-wrapper .latest-date {
-  width: 40%;
-  font-size: 18px;
-  color: greenyellow;
-  text-align: right;
-}
-
-.recommend-container {
-  margin-top: 2rem;
-  width: 90%;
-}
-
-.recommend-container .title {
+  font-weight: bold;
   text-align: center;
-  font-size: 25px;
-  color: white;
-  border-bottom: 2px solid gray;
+  line-height: 3;
 }
 
-.recommend-container .recommend-wrapper {
+.latest-info .latest-date {
+  font-size: 18px;
+  color: green;
+  text-align: center;
+  line-height: 3;
+}
+
+.recommend-wrapper {
   width: 100%;
   display: inline-flex;
   padding: 6px 4px;
-  border-bottom: 1px dotted white;
+  border-bottom: 1px dotted gray;
 }
 
-.recommend-wrapper .recommend-name {
-  width: 60%;
+.recommend-info {
+  width: 100%;
+  margin-right: 20px;
+}
+
+.recommend-info .recommend-name {
   font-size: 20px;
-  color: white;
-}
-
-.recommend-wrapper .recommend-rating {
-  width: 40%;
-  font-size: 18px;
-  color: greenyellow;
-  text-align: right;
-}
-
-.rank-container {
-  margin-top: 2rem;
-  width: 90%;
-}
-
-.rank-container .title {
+  font-weight: bold;
   text-align: center;
-  font-size: 25px;
-  color: white;
-  border-bottom: 2px solid gray;
+  line-height: 3;
 }
 
-.rank-container .rank-wrapper {
+.recommend-info .recommend-author {
+  font-size: 18px;
+  color: green;
+  text-align: center;
+  line-height: 2;
+}
+
+.recommend-info .recommend-type {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 2;
+}
+
+.recommend-info .recommend-issue_date {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.rank-wrapper {
   width: 100%;
   display: inline-flex;
   padding: 6px 4px;
-  border-bottom: 1px dotted white;
+  border-bottom: 1px dotted gray;
 }
 
-.rank-wrapper .rank-name {
-  width: 60%;
+.rank-info {
+  width: 95%;
+  display: inline-flex;
+}
+
+.rank-info .rank-index {
+  width: 10%;
+  margin-left: 20px;
   font-size: 20px;
-  color: white;
+  font-weight: bold;
 }
 
-.rank-wrapper .rank-ranking {
-  width: 40%;
+.rank-info .rank-name {
+  width: 70%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.rank-info .rank-ranking {
+  width: 20%;
   font-size: 18px;
-  color: greenyellow;
+  color: green;
   text-align: right;
+  display: inline-flex;
 }
 
-.free-container {
-  margin-top: 2rem;
-  width: 90%;
+.rank-info text {
+  line-height: 1.5
 }
 
-.free-container .title {
-  text-align: center;
-  font-size: 25px;
-  color: white;
-  border-bottom: 2px solid gray;
+.rank-info .star {
+  width: 25px;
+  height: 25px;
 }
 
-.free-container .free-wrapper {
+.free-wrapper {
   width: 100%;
   padding: 6px 4px;
-  border-bottom: 1px dotted white;
+  display: inline-flex;
+  border-bottom: 1px dotted gray;
 }
 
-.free-wrapper .free-name {
-  /* width: 60%; */
+.free-info {
+  width: 90%;
+  display: inline-flex;
+}
+
+.free-info .free-index {
+  margin-left: 20px;
+  width: 10%;
   font-size: 20px;
-  color: white;
-  text-align: center;
+  font-weight: bold;
+  text-align: left;
+}
+
+.free-info .free-name {
+  width: 80%;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.free_icon {
+  width: 30px;
+  height: 30px;
+  text-align: right;
 }

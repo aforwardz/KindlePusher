@@ -3,63 +3,119 @@
   <view class="decoration-wrapper">
     <view class="decoration">
       <text class="title">Kindle Pusher</text>
+      <view class='menu-wrapper'>
+        <view id='latest-index' class='menu-icon latest' bindtap='scrollTo'>
+          <image src='../../assets/images/new.png' style='width: 40px;height:40px'></image>
+          <text>最新</text>
+        </view>
+        <view id='recommend-index' class='menu-icon recommend' bindtap='scrollTo'>
+          <image src='../../assets/images/recommend2.png' style='width: 40px;height:40px'></image>
+          <text>推荐</text>
+        </view>
+        <view id='rank-index' class='menu-icon rank' bindtap='scrollTo'>
+          <image src='../../assets/images/rank.png' style='width: 40px;height:40px'></image>
+          <text>排行</text>
+        </view>
+        <view id='free-index' class='menu-icon free' bindtap='scrollTo'>
+          <image src='../../assets/images/free.png' style='width: 40px;height:40px'></image>
+          <text>免费</text>
+        </view>
+      </view>
     </view>
   </view>
-  <view class="latest-container">
-    <view class="latest">
-      <view class="title">最新上线</view>
+  <view id='latest-part' class="home-container latest">
+    <view class='pin-bar'>
+      <image src='../../assets/images/pin.png' style='width: 30px;height:30px'></image>
+      <view class="title">
+        <text>最新上线</text>
+      </view>
+    </view>
       <block wx:for="{{latests}}" wx:for-item="item">
        <view class="latest-wrapper" data-id='{{item.id}}' bindtap='viewEbook'>
+        <image class='poster-thumb' src='{{item.poster}}'></image>
+        <view class='latest-info'>
           <view class="latest-name">
             <text>{{item.name}}</text>
           </view>
           <view class="latest-date">
             <text>{{item.create_time}}</text>
           </view>
+        </view>
        </view>
       </block>
-    </view>
   </view>
-  <view class="recommend-container">
-    <view class="recommend">
-      <view class="title">今日推荐</view>
+  <view id='recommend-part' class="home-container recommend">
+    <view class='pin-bar'>
+      <image src='../../assets/images/pin.png' style='width: 30px;height:30px'></image>
+      <view class="title">
+        <text>墙裂推荐</text>
+      </view>
+    </view>
       <block wx:for="{{recommends}}" wx:for-item="item">
        <view class="recommend-wrapper" data-id='{{item.id}}' bindtap='viewEbook'>
+       <image class='poster-thumb' src='{{item.poster}}'></image>
+       <view class='recommend-info'>
         <view class="recommend-name">
           <text>{{item.name}}</text>
         </view>
-        <view class="recommend-rating">
-          <text>{{item.id}}</text>
+        <view class="recommend-author">
+          <text>{{item.author}}</text>
+        </view>
+        <view class="recommend-type">
+          <text>{{item.ebook_type}}</text>
+        </view>
+        <view class="recommend-issue_date">
+          <text>{{item.issue_date}}</text>
         </view>
        </view>
+       </view>
       </block>
-    </view>
   </view>
-  <view class="rank-container">
-    <view class="rank">
-      <view class="title">排行榜</view>
+  <view id='rank-part' class="home-container rank">
+    <view class='pin-bar'>
+      <image src='../../assets/images/pin.png' style='width: 30px;height:30px'></image>
+      <view class="title">
+        <text>排行榜</text>
+      </view>
+    </view>
       <block wx:for="{{ranks}}" wx:for-item="item">
        <view class="rank-wrapper" data-id='{{item.id}}' bindtap='viewEbook'>
+       <view class='rank-info'>
+        <view class="rank-index">
+          <text>{{index+1}}. </text>
+        </view>
         <view class="rank-name">
           <text>{{item.name}}</text>
         </view>
         <view class="rank-ranking">
           <text>{{item.scores}}</text>
+          <image class='star' src='../../assets/images/star.png'></image>
         </view>
        </view>
+       </view>
       </block>
-    </view>
   </view>
-  <view class="free-container">
-    <view class="free">
-      <view class="title">免费专区</view>
+  <view id='free-part' class="home-container free">
+    <view class='pin-bar'>
+      <image src='../../assets/images/pin.png' style='width: 30px;height:30px'></image>
+      <view class="title">
+        <text>免费专区</text>
+      </view>
+    </view>
       <block wx:for="{{frees}}" wx:for-item="item">
        <view class="free-wrapper" data-id='{{item.id}}' bindtap='viewEbook'>
+       <view class='free-info'>
+        <view class="free-index">
+          <text>{{index+1}}. </text>
+        </view>
         <view class="free-name">
           <text>{{item.name}}</text>
         </view>
+        <view class="free-icon">
+          <image class='free_icon' src='../../assets/images/free-home.png'></image>
+        </view>
+       </view>
        </view>
       </block>
-    </view>
   </view>
 </view>

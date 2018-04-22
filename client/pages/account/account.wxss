@@ -1,4 +1,11 @@
 /* pages/account/account.wxss */
+ page {
+   background: url('https://kindlepusher.cn/media/bg.jpg');
+  background-position: center;
+  background-size: cover;  
+  background-attachment: fixed; 
+} 
+
 .userinfo {
     margin-top: 30rpx;
     height: 30%;

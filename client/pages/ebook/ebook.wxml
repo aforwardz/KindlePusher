@@ -1,45 +1,79 @@
 <!--pages/ebook/ebook.wxml-->
 <view class="container">
-  <view class="name-wrapper">
-    <view class="ebook-name">
-      <text class="name">{{ebook.name}}</text>
+  <view class="poster-wrapper">
+    <view class="ebook-poster">
+      <image src='{{ebook.poster}}'></image>
     </view>
   </view>
-  <scroll-view scroll-y class="ebook-wrapper">
+  <view class="ebook-wrapper">
+    <view class='ebook-title'>
+      <view class='pin'>
+        <image class="pin-icon" src="../../assets/images/book-title.png"></image>
+      </view>
+      <view class='ebook-name'>
+        <text class="name">{{ebook.name}}</text>
+        <view class="ebook-free" wx:if='{{ebook.free}}'>
+            <image class="free" src="../../assets/images/free-book.png"></image>
+          </view>
+      </view>
+      <view class='ebook-scores'>
+        <view class="scores-title">
+          <text>评分</text>
+        </view>
+        <view class="scores">
+          <text>{{ebook.scores}}</text>
+        </view>
+      </view>
+    </view>
       <view class="ebook-content">
-        <view class='ebook-poster'>
-          <image class="poster" src="{{ebook.poster}}"></image>
+        <view class='content-title'>
+          <image src='../../assets/images/book.png'></image>
         </view>
         <view class="ebook-info">
-          <view class="ebook-en_name">
-            <text class="en_name">{{ebook.en_name}}</text>
-          </view>
-          <view class="ebook-author">
+          <view class="info author">
+            <text class="info-title">作者:</text>
             <text class="author">{{ebook.author}}</text>
           </view>
-          <view class="ebook-issue">
+          <view class="info issue_date">
+            <text class="info-title">发布日期:</text>
             <text class="issue_date">{{ebook.issue_date}}</text>
           </view>
-          <view class="ebook-type">
-            <text class="type">类型: {{ebook.ebook_type}}</text>
+          <view class="info type">
+            <text class="info-title">类型:</text>
+            <text class="type">{{ebook.ebook_type}}</text>
           </view>
-          <view class="ebook-price">
-            <text class="price">价格: {{ebook.price}} ¥</text>
+          <view class="info price">
+            <text class="info-title">价格:</text>
+            <text class="price">{{ebook.price}} ¥</text>
           </view>
-          <view class="ebook-eprice">
-            <text class="eprice">电子书价格: {{ebook.ebook_price}} ¥</text>
-          </view>
-          <view class="ebook-scores">
-            <text class="scores">评分: {{ebook.scores}}</text>
-          </view>
-          <view class="ebook-free" wx:if='{{ebook.free}}'>
-            <text class="free">免费</text>
+          <view class="info eprice">
+            <text class="info-title">电子书价格:</text>
+            <text class="eprice">{{ebook.ebook_price}} ¥</text>
           </view>
         </view>
       </view>
       <view class='intro'>
-        <view class='intro-title'>简介: </view>
-        <text class='ebook-intro'>{{ebook.intro}}</text>
+        <view class='intro-title'>
+          <image src='../../assets/images/intro.png'></image>
+          <view class="title">
+            <text>简介</text>
+          </view>
+        </view>
+        <view class='ebook-intro'>
+          <view wx:if='{{ebook.intro.length > 10}}'>
+            <view wx:if='{{collapsed}}'>
+              <text class='intro-content'>{{short_intro}}</text>
+              <span bindtap='controlIntro'>展开</span>
+            </view>
+            <view wx:else>
+              <text class='intro-content'>{{ebook.intro}}</text>
+              <span bindtap='controlIntro'>收起</span>
+            </view>
+          </view>
+          <view wx:else>
+            <text class='intro-content'>{{ebook.intro}}</text>
+          </view>
+        </view>
       </view>
       <view class='popularity-wrapper'>
         <view class='popularity-table'>
@@ -80,6 +114,6 @@
         </block>
        </view>
       </view>
-  </scroll-view>
+  </view>
 </view>
 
