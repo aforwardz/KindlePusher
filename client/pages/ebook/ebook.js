@@ -8,7 +8,9 @@ Page({
    */
   data: {
     ebookId: '',
-    ebook: {}
+    ebook: {},
+    short_intro: '',
+    collapsed: true
   },
 
   searchEbook: function (id) {
@@ -22,7 +24,11 @@ Page({
         }
         else {
           util.showSuccess('获取成功')
+          console.log(response.data)
           that.setData({ebook: response.data})
+          if (that.data.collapsed) {
+            that.setData({short_intro: that.data.ebook.intro.slice(0, 100)})
+          }
         }
       },
       fail: function (response) {
@@ -72,6 +78,11 @@ Page({
     } catch (e) {
       console.log(e)
     }
+  },
+
+  controlIntro: function () {
+    this.collapsed = !this.collapsed
+    console.log(this.collapsed)
   },
 
   /**
