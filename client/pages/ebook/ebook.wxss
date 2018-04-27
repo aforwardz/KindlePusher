@@ -83,6 +83,7 @@
 
 .ebook-content {
   margin-top: 15px;
+  margin-bottom: 5px;
   display: flex;
   width: 100%;
 }
@@ -139,10 +140,20 @@
   margin-left: 20px;
 }
 
+.seperator {
+  width: 100%;
+  height: 5px;
+  background-color: #E8E8E8;
+}
+.v-seperator {
+  width:4px;
+  height: inherit;
+  background-color: #E8E8E8;
+}
+
 .intro {
   margin-top: 15px;
   padding-bottom: 10px;
-  border-bottom: dotted 2px gray;
 }
 
 .intro-title {
@@ -183,7 +194,8 @@
 .popularity-table {
   width: 100%;
   margin-top: 1rem;
-  border: 0px solid; 
+  margin-bottom: 0.5rem;
+  /* border: 0px solid;  */
 }
 .tr {
   display: flex;
@@ -197,6 +209,7 @@
     font-size: larger;
     justify-content: center;
     text-align: center;
+    color: orangered;
     /* border: 1px gray;
     border-style: dotted none none none; */
 }
