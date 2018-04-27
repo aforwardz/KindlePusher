@@ -10,7 +10,8 @@ Page({
     ebookId: '',
     ebook: {},
     short_intro: '',
-    collapsed: true
+    collapsed: true,
+    reachBottom: false
   },
 
   searchEbook: function (id) {
@@ -81,8 +82,8 @@ Page({
   },
 
   controlIntro: function () {
-    this.collapsed = !this.collapsed
-    console.log(this.collapsed)
+    var that = this
+    that.setData({collapsed: !that.data.collapsed})
   },
 
   /**
@@ -133,7 +134,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    var that = this
+    that.setData({reachBottom: true})
   },
 
   /**

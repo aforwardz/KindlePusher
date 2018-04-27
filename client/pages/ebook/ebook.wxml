@@ -63,11 +63,11 @@
           <view wx:if='{{ebook.intro.length > 10}}'>
             <view wx:if='{{collapsed}}'>
               <text class='intro-content'>{{short_intro}}</text>
-              <span bindtap='controlIntro'>展开</span>
+              <span bindtap='controlIntro'>...展开</span>
             </view>
             <view wx:else>
               <text class='intro-content'>{{ebook.intro}}</text>
-              <span bindtap='controlIntro'>收起</span>
+              <span bindtap='controlIntro'>...收起</span>
             </view>
           </view>
           <view wx:else>
@@ -89,16 +89,21 @@
           </view>
         </view>
       </view>
-      <view class='resource-wrapper'>
        <view class='ebook-resource'>
         <view class='resource-status' wx:if='{{!ebook.resource_status}}'>
         <text class='status'>暂无资源，敬请期待！</text>
         </view>
         <view class='resource-title' wx:else>
-        <text class='title'>资源:</text>
+          <image src='../../assets/images/resource.png'></image>
+          <view class="title">
+            <text>资源</text>
+          </view>
         </view>
         <block wx:if='{{ebook.resource_status}}' wx:for="{{ebook.resource}}" wx:for-item="resource">
           <view class="resource-content" id='{{resource.id}}'>
+            <view class="resource-index">
+              <text>{{index+1}}. </text>
+            </view>
             <view class="resource-name">
               <text>{{resource.resource_name}}</text>
             </view>
@@ -108,12 +113,18 @@
             <view class="resource-format">
               <text>{{resource.format}}</text>
             </view>
-            <button type='primary' class='resource-push' data-id='{{resource.id}}' data-name='{{resource.resource_name}}' bindtap='pushEbook'>推送</button> 
+            <view class="resource-push">
+              <button type='primary' data-id='{{resource.id}}' data-name='{{resource.resource_name}}' bindtap='pushEbook'>
+              <!-- <text>推送</text> -->
+              <image src='../../assets/images/forward1.png'></image>
+              </button> 
+            </view>
             <!-- <input type="button" value="推送" class="resource-push"></input> -->
           </view>
         </block>
-       </view>
+
       </view>
+    <view class='bottom' wx:if='{{reachBottom}}'>别扯了，木有啦～～ToT</view>
   </view>
 </view>
 

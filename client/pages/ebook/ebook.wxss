@@ -168,11 +168,16 @@
 }
 
 .ebook-intro {
-  width: 95%;
+  margin: 10px;
 }
 
 .ebook-intro .intro-content {
-  height: 100px;
+   height: 100px; 
+}
+
+.ebook-intro span {
+  color: blue;
+  text-decoration: underline;
 }
 
 .popularity-table {
@@ -211,12 +216,33 @@
   align-items: center;
 }
 
-.resource-wrapper {
+.ebook-resource {
+  margin-top: 15px;
   width: 100%;
 }
 
-.ebook-resource {
-  margin: 15px;
+.resource-title {
+  width: 100%;
+  display: inline-flex;
+}
+
+.resource-title image {
+  width: 30px;
+  height: 30px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.resource-title .title {
+  width: 90%;
+  margin-left: 3px;
+  text-align: left;
+  font-size: 22px;
+  color: black;
+  font-weight: bold;
+}
+.resource-title .title text{
+  border-bottom: 1px solid #1296db;
 }
 
 .ebook-resource .resource-status {
@@ -233,8 +259,10 @@
   padding-top: 5px;
   padding-bottom: 5px;
   margin-bottom: 10px;
-  border-top: dotted 2px gray;
   display: inline-flex;
+  justify-content: space-around;
+  border-bottom: dotted 1px gray;
+  font-size: 18px;
 }
 
 .ebook-resource .resource-title {
@@ -243,25 +271,48 @@
   margin-bottom: 10px;
 }
 
-.resource-content .resource-name {
-  width: 40%;
+.resource-content .resource-index {
   font-weight: bold;
 }
 
+.resource-content .resource-name {
+  font-weight: bold;
+}
+
+.resource-content .resource-info {
+  /* width: 20%; */
+}
+
 .resource-content .resource-size {
-  width: 20%;
   text-align: center;
   font-weight: bold;
 }
 
 .resource-content .resource-format {
-  width: 20%;
   text-align: center;
   font-weight: bold;
 }
 
 .resource-content .resource-push {
-   font-size: 18px;
-   height: 28px;
-   line-height: 1.7; 
+  align-items: center
+}
+
+.resource-push button image {
+  width: 25px;
+  height: 25px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.resource-push button {
+  height: 30px;
+  line-height: 2.3;
+  /* margin-top: 0.7rem; */
+}
+
+.bottom {
+  height: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: gray
 }
