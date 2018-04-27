@@ -25,95 +25,113 @@
         </view>
       </view>
     </view>
-      <view class="ebook-content">
-        <view class='content-title'>
-          <image src='../../assets/images/book.png'></image>
+    <view class="ebook-content">
+      <view class='content-title'>
+        <image src='../../assets/images/book.png'></image>
+      </view>
+      <view class="ebook-info">
+        <view class="info author">
+          <text class="info-title">作者:</text>
+          <text class="author">{{ebook.author}}</text>
         </view>
-        <view class="ebook-info">
-          <view class="info author">
-            <text class="info-title">作者:</text>
-            <text class="author">{{ebook.author}}</text>
-          </view>
-          <view class="info issue_date">
-            <text class="info-title">发布日期:</text>
-            <text class="issue_date">{{ebook.issue_date}}</text>
-          </view>
-          <view class="info type">
-            <text class="info-title">类型:</text>
-            <text class="type">{{ebook.ebook_type}}</text>
-          </view>
-          <view class="info price">
-            <text class="info-title">价格:</text>
-            <text class="price">{{ebook.price}} ¥</text>
-          </view>
-          <view class="info eprice">
-            <text class="info-title">电子书价格:</text>
-            <text class="eprice">{{ebook.ebook_price}} ¥</text>
-          </view>
+        <view class="info issue_date">
+          <text class="info-title">发布日期:</text>
+          <text class="issue_date">{{ebook.issue_date}}</text>
+        </view>
+        <view class="info type">
+          <text class="info-title">类型:</text>
+          <text class="type">{{ebook.ebook_type}}</text>
+        </view>
+        <view class="info price">
+          <text class="info-title">价格:</text>
+          <text class="price">{{ebook.price}} ¥</text>
+        </view>
+        <view class="info eprice">
+          <text class="info-title">电子书价格:</text>
+          <text class="eprice">{{ebook.ebook_price}} ¥</text>
         </view>
       </view>
-      <view class='intro'>
-        <view class='intro-title'>
-          <image src='../../assets/images/intro.png'></image>
-          <view class="title">
-            <text>简介</text>
-          </view>
+    </view>
+    <view class='seperator'></view>
+    <view class='intro'>
+      <view class='intro-title'>
+        <image src='../../assets/images/intro.png'></image>
+        <view class="title">
+          <text>简介</text>
         </view>
-        <view class='ebook-intro'>
-          <view wx:if='{{ebook.intro.length > 10}}'>
-            <view wx:if='{{collapsed}}'>
-              <text class='intro-content'>{{short_intro}}</text>
-              <span bindtap='controlIntro'>展开</span>
-            </view>
-            <view wx:else>
-              <text class='intro-content'>{{ebook.intro}}</text>
-              <span bindtap='controlIntro'>收起</span>
-            </view>
+      </view>
+      <view class='ebook-intro'>
+        <view wx:if='{{ebook.intro.length > 10}}'>
+          <view wx:if='{{collapsed}}'>
+            <text class='intro-content'>{{short_intro}}</text>
+            <span bindtap='controlIntro'>...展开</span>
           </view>
           <view wx:else>
             <text class='intro-content'>{{ebook.intro}}</text>
+            <span bindtap='controlIntro'>...收起</span>
           </view>
+        </view>
+        <view wx:else>
+          <text class='intro-content'>{{ebook.intro}}</text>
         </view>
       </view>
-      <view class='popularity-wrapper'>
-        <view class='popularity-table'>
-          <view class="tr heading">
-            <view class="th">强推</view>
-            <view class="th">想看</view>
-            <view class="th">推送</view>
-          </view>
-          <view class="tr content">
-            <view class="td">{{ebook.favors}}</view>
-            <view class="td">{{ebook.wants}}</view>
-            <view class="td">{{ebook.pushes}}</view>
-          </view>
+    </view>
+    <view class='seperator'></view>
+    <view class='popularity-wrapper'>
+      <view class='popularity-table'>
+        <view class="tr heading">
+          <view class="th">强推</view>
+          <view class='v-seperator'></view>
+          <view class="th">想看</view>
+          <view class='v-seperator'></view>
+          <view class="th">推送</view>
+        </view>
+        <view class="tr content">
+          <view class="td">{{ebook.favors}}</view>
+          <view class='v-seperator'></view>
+          <view class="td">{{ebook.wants}}</view>
+          <view class='v-seperator'></view>
+          <view class="td">{{ebook.pushes}}</view>
         </view>
       </view>
-      <view class='resource-wrapper'>
-       <view class='ebook-resource'>
-        <view class='resource-status' wx:if='{{!ebook.resource_status}}'>
-        <text class='status'>暂无资源，敬请期待！</text>
-        </view>
-        <view class='resource-title' wx:else>
-        <text class='title'>资源:</text>
-        </view>
-        <block wx:if='{{ebook.resource_status}}' wx:for="{{ebook.resource}}" wx:for-item="resource">
-          <view class="resource-content" id='{{resource.id}}'>
-            <view class="resource-name">
-              <text>{{resource.resource_name}}</text>
-            </view>
-            <view class="resource-size">
-              <text>{{resource.size}}M</text>
-            </view>
-            <view class="resource-format">
-              <text>{{resource.format}}</text>
-            </view>
-            <button type='primary' class='resource-push' data-id='{{resource.id}}' data-name='{{resource.resource_name}}' bindtap='pushEbook'>推送</button> 
-            <!-- <input type="button" value="推送" class="resource-push"></input> -->
-          </view>
-        </block>
-       </view>
+    </view>
+    <view class='seperator'></view>
+    <view class='ebook-resource'>
+      <view class='resource-status' wx:if='{{!ebook.resource_status}}'>
+      <text class='status'>暂无资源，敬请期待！</text>
       </view>
+      <view class='resource-title' wx:else>
+        <image src='../../assets/images/resource.png'></image>
+        <view class="title">
+          <text>资源</text>
+        </view>
+      </view>
+      <block wx:if='{{ebook.resource_status}}' wx:for="{{ebook.resource}}" wx:for-item="resource">
+        <view class="resource-content" id='{{resource.id}}'>
+          <view class="resource-index">
+            <text>{{index+1}}. </text>
+          </view>
+          <view class="resource-name">
+            <text>{{resource.resource_name}}</text>
+          </view>
+          <view class="resource-size">
+            <text>{{resource.size}}M</text>
+          </view>
+          <view class="resource-format">
+            <text>{{resource.format}}</text>
+          </view>
+          <view class="resource-push">
+            <button type='primary' data-id='{{resource.id}}' data-name='{{resource.resource_name}}' bindtap='pushEbook'>
+            <!-- <text>推送</text> -->
+            <image src='../../assets/images/forward1.png'></image>
+            </button> 
+          </view>
+          <!-- <input type="button" value="推送" class="resource-push"></input> -->
+        </view>
+      </block>
+
+    </view>
+    <view class='bottom' wx:if='{{reachBottom}}'>别扯了，木有啦～～ToT</view>
   </view>
 </view>
 
