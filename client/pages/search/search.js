@@ -13,7 +13,10 @@ Page({
     format_index: 0,
     result: {
       subjects: []
-    }
+    },
+    searched: false,
+    hots: ['天才余', 'RNG', '陈独秀', '小猪配齐'],
+    guess: [{ like: '熊出没', likely: '70%' }, { like: '四驱兄弟', likely: '40%' }]
   },
 
   /**
@@ -62,7 +65,7 @@ Page({
   },
   /**清空输入框 */
   bindSearchClear: function (event) {
-    var readyData = { searchValue: "", showClear: false, result: {} };
+    var readyData = { searchValue: "", showClear: false, result: {}, searched: false };
     this.setData(readyData);
   },
   /**点击搜索 */
@@ -73,6 +76,7 @@ Page({
   /** 提交搜索请求 */
   handleSearchData: function (value) {
     var that = this;
+    that.setData({searched: true})
     var serchURL = ebook_api.SEARCH_API + '?search=' + value;
     wx.request({
       url: serchURL,

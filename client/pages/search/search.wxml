@@ -9,6 +9,41 @@
     </view>
     <text class="search-start" bindtap="bindSearchStart">搜索</text>
   </view>
+  <view class='search-default' wx:if='{{!searched}}'>
+    <view class='hot-search'>
+      <view class='title'>
+        <image src='../../assets/images/hot.png'></image>
+        <view class='title-content'>
+          <text>热门搜索</text>
+        </view>
+      </view>
+      <view class='hot-label'>
+        <block wx:for='{{hots}}' wx:for-item='hot'>
+          <view class='label'>
+            <text>{{hot}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class='seperator'></view>
+    <view class='guess-search'>
+      <view class='title'>
+        <image src='../../assets/images/guess.png'></image>
+        <view class='title-content'>
+          <text>猜你喜欢</text>
+        </view>
+      </view>
+      <view class='guess-label'>
+        <block wx:for='{{guess}}' wx:for-item='item'>
+          <view class='guess-item' style='width: {{item.likely}}'>
+            <text>{{index + 1}}. {{item.like}}</text>
+            <text class='likely'>{{item.likely}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='seperator'></view>
   <scroll-view scroll-y class="session-book">
     <block wx:for="{{result.subjects}}" wx:for-item="item">
       <view class="book-wrapper" data-id="{{item.id}}" bindtap="viewBook">

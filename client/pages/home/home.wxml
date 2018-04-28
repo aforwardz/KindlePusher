@@ -23,6 +23,7 @@
       </view>
     </view>
   </view>
+  <view class='seperator'></view>
   <view id='latest-part' class="home-container latest">
     <view class='pin-bar'>
       <image src='../../assets/images/pin.png' style='width: 30px;height:30px'></image>
@@ -44,6 +45,7 @@
        </view>
       </block>
   </view>
+  <view class='seperator'></view>
   <view id='recommend-part' class="home-container recommend">
     <view class='pin-bar'>
       <image src='../../assets/images/pin.png' style='width: 30px;height:30px'></image>
@@ -71,6 +73,7 @@
        </view>
       </block>
   </view>
+  <view class='seperator'></view>
   <view id='rank-part' class="home-container rank">
     <view class='pin-bar'>
       <image src='../../assets/images/pin.png' style='width: 30px;height:30px'></image>
@@ -95,6 +98,7 @@
        </view>
       </block>
   </view>
+  <view class='seperator'></view>
   <view id='free-part' class="home-container free">
     <view class='pin-bar'>
       <image src='../../assets/images/pin.png' style='width: 30px;height:30px'></image>
