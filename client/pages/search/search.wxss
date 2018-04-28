@@ -3,7 +3,7 @@
     width: 100%; 
     height: 80rpx;
     background-color: #ddd; 
-    border-radius: 10rpx;
+    /* border-radius: 10rpx; */
     border-width: 10rpx; 
     border-color: blue;
     display: flex;
@@ -52,6 +52,87 @@
   width: 60rpx;
   text-align: center;
   font-size: 28rpx;
+}
+
+.seperator {
+  width: 100%;
+  height: 5px;
+  background-color: #E8E8E8;
+}
+
+.search-default {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.hot-search {
+  margin: 0.5rem;
+}
+
+.title {
+  width: 100%;
+  display: inline-flex;
+}
+
+.title image {
+  width: 30px;
+  height: 30px;
+}
+
+.title .title-content {
+  width: 90%;
+  margin-left: 3px;
+  text-align: left;
+  font-size: 22px;
+  color: black;
+  font-weight: bold;
+}
+.title .title-content text{
+  border-bottom: 1px solid #1296db;
+}
+
+.hot-search .hot-label {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #E8E8E8;
+}
+
+.label {
+  width: 100px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 8px;
+  flex:auto;  
+}
+
+.label text {
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: #66ffcc;
+  box-shadow: 3px 2px 3px gray;
+}
+
+.guess-search {
+  width: 100%;
+  margin: 1rem 0.5rem 0.5rem 0.5rem;
+}
+
+.guess-search .guess-label {
+  margin: 10px;
+  padding-bottom: 5px;
+}
+
+.guess-item {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+  background-color: lightskyblue;
+}
+
+.guess-item .likely {
+  float: right;
+  color: gray;
 }
 
 .session-book {
