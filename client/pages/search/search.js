@@ -76,29 +76,34 @@ Page({
   /** 提交搜索请求 */
   handleSearchData: function (value) {
     var that = this;
-    that.setData({searched: true})
-    var serchURL = ebook_api.SEARCH_API + '?search=' + value;
-    wx.request({
-      url: serchURL,
-      success: function (res) {
-        // success
-        var data = res.data;
-        console.log(data)
-        if (data) {
-          util.showSuccess('搜索成功')
-          that.setData({result: {subjects: data}})
-        } else {
-          util.showModal('抱歉', '暂无相关书籍')
+    value = value.trim()
+    if (value) {
+      that.setData({searched: true})
+      var serchURL = ebook_api.SEARCH_API + '?search=' + value;
+      wx.request({
+        url: serchURL,
+        success: function (res) {
+          // success
+          var data = res.data;
+          console.log(data)
+          if (data) {
+            util.showSuccess('搜索成功')
+            that.setData({result: {subjects: data}})
+          } else {
+            util.showModal('抱歉', '暂无相关书籍')
+          }
+        },
+        fail: function (res) {
+          // fail
+          util.showModal('失败', res.body.detail)
+        },
+        complete: function () {
+          // complete
         }
-      },
-      fail: function (res) {
-        // fail
-        util.showModal('失败', res.body.detail)
-      },
-      complete: function () {
-        // complete
-      }
-    });
+      });
+    } else {
+      util.showModal('错误', '搜索内容为空')
+    }
   },
  
   /** 点击进入搜索条目 */

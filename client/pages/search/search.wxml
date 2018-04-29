@@ -44,14 +44,23 @@
     </view>
   </view>
   <view class='seperator'></view>
-  <scroll-view scroll-y class="session-book">
+  <scroll-view scroll-y class="session-book" wx:if='{{searched}}'>
+    <view class='title'>
+      <image src='../../assets/images/list.png'></image>
+      <view class='title-content'>
+        <text>搜索结果</text>
+      </view>
+    </view>
+    <view class='search-count'>
+        <text>共{{result.subjects.length}}条相关书目</text>
+      </view>
     <block wx:for="{{result.subjects}}" wx:for-item="item">
-      <view class="book-wrapper" data-id="{{item.id}}" bindtap="viewBook">
+      <view class="book-wrapper" data-id="{{item.id}}" bindtap="viewBook" style="background-color: {{index%2==0?'#C7F2E4': 'white'}}">
         <view class="book-content">
           <image class="poster" src="{{item.poster}}"></image>
           <view class="breif-intro">
             <view class="book-name">
-              <text class="name">{{item.title}}</text>
+              <text class="name">{{item.name}}</text>
             </view>
             <view class="book-author">
               <text class="author">{{item.author}}</text>
@@ -74,6 +83,7 @@
           </view>
         </view>
       </view>
+      <view class='seperator'></view>
     </block>
   </scroll-view>
 </view>

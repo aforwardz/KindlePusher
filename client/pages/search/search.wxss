@@ -136,14 +136,29 @@
 }
 
 .session-book {
-  padding: 10px;
+  margin-top: 0.5rem;
   width: 100%;
 }
 
+.session-book .title image {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.search-count {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-size: 18px;
+  color: gray;
+  border-bottom: 1px dotted gray;
+}
+
 .book-wrapper {
-  border-bottom: dotted gray;
-  border-radius: 15px; 
-  margin-bottom: 25px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  /* background-color: #C7F2E4; */
 }
 
 .book-content {
@@ -164,14 +179,13 @@
 
 .breif-intro .book-name {
   width: 100%;
-  color: blue;
   font-size: x-large; 
   text-align: center;
   margin-bottom: 10px;
 }
 
 .breif-intro .book-author {
-  width: 80%;
+  width: 100%;
   color: black;
   font-size: 20px;
   margin-bottom: 10px;
@@ -179,14 +193,14 @@
 }
 
 .book-info {
-
   display: flex;
 }
 
 .book-info .book-date {
   width: 60%;
   color: orange;
-  font-size: 18px;
+  font-size: 20px;
+  line-height: 1.6
 }
 
 .book-info .book-rate {
