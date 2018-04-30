@@ -62,6 +62,7 @@ Page({
                 success: function (sRes) {
                   if (sRes.data.statusText == 'OK') {
                     util.showSuccess('推送成功！')
+                    that.data.ebook,pushes = that.data.ebook.pushes + 1
                   } else {
                     util.showModal('失败', sRes.data.detail)
                   }
@@ -91,6 +92,7 @@ Page({
    */
   onLoad: function (options) {
     if (options.id) {
+      this.ebookId = options.id
       this.searchEbook(options.id)
     }
   },
@@ -141,7 +143,19 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+    var that = this
+    return {
+      title: '向你推荐《'+that.data.ebook.name+'》',
+      path: '/pages/ebook/ebook/?id='+that.data.ebookId,
+      success: function (res) {
+        // 转发成功
+        console.log(res)
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log(res)
+      }
+    }
   }
 })

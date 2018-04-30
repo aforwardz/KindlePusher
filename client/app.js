@@ -14,6 +14,12 @@ App({
                   util.showSuccess('授权成功')
                 }
               })
+            } else {
+              wx.getUserInfo({
+                success: function (res) {
+                  console.log(res)
+                }
+              })
             }
           }
         })
