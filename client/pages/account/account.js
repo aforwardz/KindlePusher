@@ -52,6 +52,10 @@ Page({
                         wx.setStorage({
                           key: "email",
                           data: kdRes.data.kindle_email
+                        },
+                        {
+                          key: "Token",
+                          data: kdRes.data.openId
                         })
                       },
                       fail: function (kdRes) {
@@ -120,9 +124,40 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
     wx.checkSession({
       success: function (data) {
-        console.log(data)
+        var token = wx.getStorageSync('Token')
+        if (token) {
+          wx.request({
+            url: ebook_api.TKLOGIN_API,
+            data: {
+              Token: token
+            },
+            method: 'POST',
+            success: function (tkRes) {
+              util.showSuccess('登录成功')
+              that.setData({
+                userInfo: tkRes.data,
+                logged: true
+              })
+              wx.setStorage({
+                key: "email",
+                data: tkRes.data.kindle_email
+              },
+              {
+                key: "Token",
+                data: tkRes.data.openId
+              })
+            },
+            fail: function (tkRes) {
+              util.showModal('错误', '登录失败')
+              console.log(tkRes)
+            }
+          })
+        } else {
+          that.login()
+        }
         // wx.setStorage({
         //   key: 'session_key',
         //   data: '',
