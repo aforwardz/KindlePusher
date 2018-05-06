@@ -136,7 +136,6 @@ Page({
             },
             method: 'POST',
             success: function (tkRes) {
-              util.showSuccess('登录成功')
               that.setData({
                 userInfo: tkRes.data,
                 logged: true
