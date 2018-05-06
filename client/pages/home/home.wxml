@@ -33,10 +33,13 @@
     </view>
       <block wx:for="{{latests}}" wx:for-item="item">
        <view class="latest-wrapper" data-id='{{item.id}}' bindtap='viewEbook'>
-        <image class='poster-thumb' src='{{item.poster}}'></image>
+        <image mode='widthFix' class='poster-thumb' src='{{item.poster}}'></image>
         <view class='latest-info'>
           <view class="latest-name">
             <text>{{item.name}}</text>
+          </view>
+          <view class="publisher">
+            <text>{{item.publisher}}</text>
           </view>
           <view class="latest-date">
             <text>{{item.create_time}}</text>
@@ -55,7 +58,7 @@
     </view>
       <block wx:for="{{recommends}}" wx:for-item="item">
        <view class="recommend-wrapper" data-id='{{item.id}}' bindtap='viewEbook'>
-       <image class='poster-thumb' src='{{item.poster}}'></image>
+       <image mode='widthFix' class='poster-thumb' src='{{item.poster}}'></image>
        <view class='recommend-info'>
         <view class="recommend-name">
           <text>{{item.name}}</text>

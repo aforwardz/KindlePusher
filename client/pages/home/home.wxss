@@ -64,12 +64,13 @@
 .latest-wrapper {
   width: 100%;
   display: inline-flex;
-  padding: 6px 4px;
+  padding: 12px 6px;
+  border-bottom: 2px solid #E8E8E8
 }
 
 .poster-thumb {
-  width: 150px;
-  height: 150px;
+  width: 450rpx;
+  /* height: 150px; */
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -86,6 +87,11 @@
   line-height: 3;
 }
 
+.latest-info .publisher {
+  font-size: 18px;
+  text-align: center;
+}
+
 .latest-info .latest-date {
   font-size: 18px;
   color: green;
@@ -96,7 +102,8 @@
 .recommend-wrapper {
   width: 100%;
   display: inline-flex;
-  padding: 6px 4px;
+  padding: 12px 6px;
+  border-bottom: 2px solid #E8E8E8
 }
 
 .recommend-info {
@@ -108,7 +115,7 @@
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  line-height: 3;
+  /* line-height: 3; */
 }
 
 .recommend-info .recommend-author {

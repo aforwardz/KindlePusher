@@ -2,7 +2,7 @@
 <view class="container">
   <view class="poster-wrapper">
     <view class="ebook-poster">
-      <image src='{{ebook.poster}}'></image>
+      <image mode='widthFix' src='{{ebook.poster}}'></image>
     </view>
   </view>
   <view class="ebook-wrapper">
@@ -34,21 +34,45 @@
           <text class="info-title">作者:</text>
           <text class="author">{{ebook.author}}</text>
         </view>
+        <view class="info org_name" wx:if='{{ebook.org_name}}'>
+          <text class="info-title">原名:</text>
+          <text class="org_name">{{ebook.org_name}}</text>
+        </view>
         <view class="info issue_date">
           <text class="info-title">发布日期:</text>
           <text class="issue_date">{{ebook.issue_date}}</text>
+        </view>
+        <view class="info publisher">
+          <text class="info-title">出版社:</text>
+          <text class="publisher">{{ebook.publisher}}</text>
+        </view>
+        <view class="info translator" wx:if='{{ebook.translator}}'>
+          <text class="info-title">译者:</text>
+          <text class="translator">{{ebook.translator}}</text>
+        </view>
+        <view class="info pages">
+          <text class="info-title">页数:</text>
+          <text class="pages">{{ebook.pages}}</text>
         </view>
         <view class="info type">
           <text class="info-title">类型:</text>
           <text class="type">{{ebook.ebook_type}}</text>
         </view>
+        <view class="info language">
+          <text class="info-title">语言:</text>
+          <text class="language">{{ebook.language}}</text>
+        </view>
         <view class="info price">
-          <text class="info-title">价格:</text>
+          <text class="info-title">纸质书价格:</text>
           <text class="price">{{ebook.price}} ¥</text>
         </view>
         <view class="info eprice">
           <text class="info-title">电子书价格:</text>
           <text class="eprice">{{ebook.ebook_price}} ¥</text>
+        </view>
+        <view class="info kp_coin">
+          <text class="info-title">KP币:</text>
+          <text class="kp_coin">{{ebook.kp_coin}}</text>
         </view>
       </view>
     </view>
