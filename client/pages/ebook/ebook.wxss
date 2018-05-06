@@ -12,8 +12,8 @@
 }
 
 .ebook-poster image {
-  width: 150px;
-  height: 200px;
+  width: 350rpx;
+  /* height: 200px; */
   margin: 20px;
 }
 
@@ -120,22 +120,52 @@
   margin-left: 20px;
 }
 
+.ebook-info .org_name {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
 .ebook-info .issue_date {
   font-size: 22px;
   margin-left: 20px;
 }
 
-.ebook-info .type {
+.ebook-info .publisher {
   font-size: 22px;
+  margin-left: 20px;
+}
+
+.ebook-info .translator {
+  font-size: 22px;
+  margin-left: 20px;
+}
+
+.ebook-info .pages {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.ebook-info .type {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.ebook-info .language {
+  font-size: 20px;
   margin-left: 20px;
 }
 
 .ebook-info .price {
-  font-size: 22px;
+  font-size: 20px;
   margin-left: 20px;
 }
 
 .ebook-info .eprice {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.ebook-info .kp_coin {
   font-size: 22px;
   margin-left: 20px;
 }
