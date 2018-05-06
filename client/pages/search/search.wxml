@@ -52,8 +52,11 @@
       </view>
     </view>
     <view class='search-count'>
-        <text>共{{result.subjects.length}}条相关书目</text>
-      </view>
+      <text>共{{result.subjects.length}}条相关书目</text>
+    </view>
+    <view class='feedback'>
+      <text>没有找到想要的？发送书目详情到god@kindlepusher.cn</text>
+    </view>
     <block wx:for="{{result.subjects}}" wx:for-item="item">
       <view class="book-wrapper" data-id="{{item.id}}" bindtap="viewBook" style="background-color: {{index%2==0?'#C7F2E4': 'white'}}">
         <view class="book-content">
