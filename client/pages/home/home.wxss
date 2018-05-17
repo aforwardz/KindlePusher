@@ -1,4 +1,8 @@
 /* pages/home/home.wxss */
+.container {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 .decoration-wrapper {
   width: 100%;
   /* height: 140px; */
@@ -64,7 +68,7 @@
 .latest-wrapper {
   width: 100%;
   display: inline-flex;
-  padding: 12px 6px;
+  padding: 12px 0px;
   border-bottom: 2px solid #E8E8E8
 }
 
@@ -102,7 +106,7 @@
 .recommend-wrapper {
   width: 100%;
   display: inline-flex;
-  padding: 12px 6px;
+  padding: 12px 0px;
   border-bottom: 2px solid #E8E8E8
 }
 
@@ -141,7 +145,7 @@
 .rank-wrapper {
   width: 100%;
   display: inline-flex;
-  padding: 6px 4px;
+  padding: 6px 0px;
 }
 
 .rank-info {
@@ -181,7 +185,7 @@
 
 .free-wrapper {
   width: 100%;
-  padding: 6px 4px;
+  padding: 6px 0px;
   display: inline-flex;
 }
 

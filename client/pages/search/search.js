@@ -68,6 +68,12 @@ Page({
     var readyData = { searchValue: "", showClear: false, result: {}, searched: false };
     this.setData(readyData);
   },
+  /**搜索热门 */
+  searchHot: function (event) {
+    util.showBusy('正在搜索')
+    var search = event.currentTarget.dataset.hot
+    this.handleSearchData(search)
+  },
   /**点击搜索 */
   bindSearchStart: function (event) {
     util.showBusy('正在搜索')
@@ -76,6 +82,7 @@ Page({
   /** 提交搜索请求 */
   handleSearchData: function (value) {
     var that = this;
+    that.setData({ showClear: true})
     value = value.trim()
     if (value) {
       that.setData({searched: true})

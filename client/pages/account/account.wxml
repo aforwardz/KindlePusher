@@ -30,6 +30,7 @@
     <view class='kindle-email' hidden='{{!logged}}'>
       <input wx:if='{{userInfo.kindle_email.length == 0}}' type='text' placeholder='点击设置推送邮箱' bindconfirm='setKindleEmail'></input>
       <text class='email' wx:else>{{userInfo.kindle_email}}</text>
+      <text class='tip'>请将god@kindlepusher.cn添加到亚马逊信任邮箱</text>
     </view>
     <view class='author'>
       <text>@天才余先生</text>
