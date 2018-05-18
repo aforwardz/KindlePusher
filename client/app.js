@@ -7,13 +7,10 @@ App({
     onLaunch: function () {
         wx.getSetting({
           success(res) {
-            if (!res.authSetting['scope.userInfo']) {
-              wx.authorize({
-                scope: 'scope.userInfo',
-                success() {
-                  util.showSuccess('授权成功')
-                }
-              })
+            if (res.authSetting['scope.userInfo']) {
+              wx.setStorageSync('isAuthorized', true)
+            } else {
+              wx.setStorageSync('isAuthorized', false)
             }
           }
         })
