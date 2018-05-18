@@ -11,7 +11,7 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    authorized: false,
+    authorized: true,
     requestResult: '',
     userData: []
   },
@@ -136,17 +136,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) {
-          that.setData({ 'authorized': true })
-          wx.setStorageSync('isAuthorized', true)
-        }
-        else {
-          wx.setStorageSync('isAuthorized', false)
-        }
-      }
-    })
     
     if (wx.getStorageSync('isAuthorized')) {
       wx.checkSession({
@@ -192,6 +181,8 @@ Page({
           console.log(data)
         }
       })
+    } else {
+      that.setData({authorized: false})
     }
   },
 
