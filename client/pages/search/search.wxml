@@ -19,7 +19,7 @@
       </view>
       <view class='hot-label'>
         <block wx:for='{{hots}}' wx:for-item='hot'>
-          <view class='label'>
+          <view class='label' data-hot='hot' bindtap='searchHot'>
             <text>{{hot}}</text>
           </view>
         </block>

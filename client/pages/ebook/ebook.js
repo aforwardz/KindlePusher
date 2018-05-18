@@ -62,7 +62,7 @@ Page({
                 success: function (sRes) {
                   if (sRes.data.statusText == 'OK') {
                     util.showSuccess('推送成功！')
-                    that.data.ebook.pushes = that.data.ebook.pushes + 1
+                    that.setData({ebook: {pushes: that.data.ebook.pushes + 1}})
                   } else {
                     util.showModal('失败', sRes.data.detail)
                   }

@@ -11,6 +11,7 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
+    authorized: false,
     requestResult: '',
     userData: []
   },
@@ -34,13 +35,16 @@ Page({
             success: function (wxRes) {
               util.showBusy('等待校验')
               if (wxRes.data.status == 'check') {
+                console.log(wxRes.data)
+                var open_id = wxRes.data.open_id
                 wx.getUserInfo({
                   success: function (userRes) {
                     wx.request({
                       url: ebook_api.KDLOGIN_API,
                       data: {
                         encryptedData: userRes.encryptedData,
-                        iv: userRes.iv
+                        iv: userRes.iv,
+                        open_id: open_id
                       },
                       method: 'POST',
                       success: function (kdRes) {
@@ -120,52 +124,75 @@ Page({
     }    
   },
 
+  bindAuthorize: function () {
+    var that = this
+    that.setData({authorized: true})
+    console.log(that)
+    that.login()
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this
-    wx.checkSession({
-      success: function (data) {
-        var token = wx.getStorageSync('Token')
-        if (token) {
-          wx.request({
-            url: ebook_api.TKLOGIN_API,
-            data: {
-              Token: token
-            },
-            method: 'POST',
-            success: function (tkRes) {
-              that.setData({
-                userInfo: tkRes.data,
-                logged: true
-              })
-              wx.setStorage({
-                key: "email",
-                data: tkRes.data.kindle_email
-              },
-              {
-                key: "Token",
-                data: tkRes.data.openId
-              })
-            },
-            fail: function (tkRes) {
-              util.showModal('错误', '登录失败')
-              console.log(tkRes)
-            }
-          })
-        } else {
-          that.login()
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          that.setData({ 'authorized': true })
+          wx.setStorageSync('isAuthorized', true)
         }
-        // wx.setStorage({
-        //   key: 'session_key',
-        //   data: '',
-        // })
-      },
-      fail: function (data) {
-        console.log(data)
+        else {
+          wx.setStorageSync('isAuthorized', false)
+        }
       }
     })
+    
+    if (wx.getStorageSync('isAuthorized')) {
+      wx.checkSession({
+        success: function (data) {
+          var token = wx.getStorageSync('Token')
+          console.log('token')
+          console.log(token)
+          if (token) {
+            wx.request({
+              url: ebook_api.TKLOGIN_API,
+              data: {
+                Token: token
+              },
+              method: 'POST',
+              success: function (tkRes) {
+                that.setData({
+                  userInfo: tkRes.data,
+                  logged: true
+                })
+                wx.setStorage({
+                  key: "email",
+                  data: tkRes.data.kindle_email
+                },
+                {
+                  key: "Token",
+                  data: tkRes.data.openId
+                })
+              },
+              fail: function (tkRes) {
+                util.showModal('错误', '登录失败')
+                console.log(tkRes)
+              }
+            })
+          } else {
+            that.login()
+          }
+          // wx.setStorage({
+          //   key: 'session_key',
+          //   data: '',
+          // })
+        },
+        fail: function (data) {
+          console.log(data)
+        }
+      })
+    }
   },
 
   /**
