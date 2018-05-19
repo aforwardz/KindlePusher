@@ -29,11 +29,13 @@
 .userinfo-nickname {
     margin-top: 20rpx;
     font-size: 40rpx;
+    font-weight: bold;
     color: #007AFF;
 }
 
 .location {
   margin-top: 10px;
+  font-weight: 300;
   width: 80%;
   height: 20px;
   display: flex;
@@ -69,14 +71,17 @@
 }
 .td {
     width:40%;
-    font-size: larger;
+    font-size: 48rpx;
+    font-weight: bold;
     justify-content: center;
     text-align: center;
     /* border: 1px gray;
     border-style: dotted none none none; */
 }
 .heading{
-   background: none; 
+  font-size: 40rpx;
+  font-weight: bold;
+  background: none; 
 }
 .content{
   /* background: #E6F3F9; */
@@ -95,6 +100,7 @@
   margin-top: 4rem;
   width: 80%;
   height: 20px;
+  font-weight: bold;
   text-align: center;
 }
 
