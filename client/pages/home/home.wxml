@@ -31,22 +31,24 @@
         <text>最新上线</text>
       </view>
     </view>
-      <block wx:for="{{latests}}" wx:for-item="item">
-       <view class="latest-wrapper" data-id='{{item.id}}' bindtap='viewEbook'>
-        <image mode='widthFix' class='poster-thumb' src='{{item.poster}}'></image>
+    <view class='latest-wrapper'>
+      <view class='latest-item' wx:for="{{latests}}" wx:for-item="item">
+       <view class="latest-container" data-id='{{item.id}}' bindtap='viewEbook'>
+        <image class='poster-thumb' src='{{item.poster}}'></image>
         <view class='latest-info'>
           <view class="latest-name">
             <text>{{item.name}}</text>
           </view>
-          <view class="publisher">
+          <!-- <view class="publisher">
             <text>{{item.publisher}}</text>
           </view>
           <view class="latest-date">
             <text>{{item.create_time}}</text>
-          </view>
+          </view> -->
         </view>
        </view>
-      </block>
+      </view>
+    </view>
   </view>
   <view class='seperator'></view>
   <view id='recommend-part' class="home-container recommend">

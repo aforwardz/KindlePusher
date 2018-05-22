@@ -66,15 +66,23 @@
 }
 
 .latest-wrapper {
-  width: 100%;
-  display: inline-flex;
+  display: flex;
+}
+
+.latest-item {
+  width: 33%;
+  /* display: flex; */
+}
+
+.latest-container {
+  height:400rpx;
   padding: 12px 0px;
   border-bottom: 2px solid #E8E8E8
 }
 
 .poster-thumb {
-  width: 450rpx;
-  /* height: 150px; */
+  width: 200rpx;
+  height: 290rpx; 
   margin-left: 10px;
   margin-right: 10px;
   box-shadow:4px 4px 15px gray;
@@ -86,8 +94,7 @@
 }
 
 .latest-info .latest-name {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 24rpx;
   text-align: center;
   line-height: 3;
 }
