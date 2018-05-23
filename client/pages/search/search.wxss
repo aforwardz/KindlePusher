@@ -62,11 +62,11 @@
 
 .search-default {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .hot-search {
-  margin: 0.5rem;
+  padding: 0.5rem;
 }
 
 .title {
@@ -75,17 +75,16 @@
 }
 
 .title image {
-  width: 30px;
-  height: 30px;
+  width: 50rpx;
+  height: 50rpx;
 }
 
 .title .title-content {
   width: 90%;
   margin-left: 3px;
   text-align: left;
-  font-size: 22px;
+  font-size: 36rpx;
   color: black;
-  font-weight: bold;
 }
 .title .title-content text{
   border-bottom: 1px solid #1296db;
@@ -97,13 +96,15 @@
   flex-direction: row;
   flex-wrap: wrap;
   background-color: #E8E8E8;
+  margin: 0.5rem 0;
 }
 
 .label {
-  width: 100px;
+  width: 150rpx;
   text-align: center;
   margin-top: 5px;
   margin-bottom: 8px;
+  font-size: 30rpx;
   flex:auto;  
 }
 
@@ -121,12 +122,12 @@
 
 .guess-search .guess-label {
   margin: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 0.5rem;
 }
 
 .guess-item {
   margin-bottom: 0.5rem;
-  font-size: 18px;
+  font-size: 30rpx;
   background-color: lightskyblue;
 }
 
