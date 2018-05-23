@@ -22,8 +22,7 @@
 }
 
 .ebook-title {
-  width: 95%;
-  padding-right: 20px;
+  width: 100%;
   padding-top: 20px;
   padding-bottom: 10px;
   display: inline-flex;
@@ -41,9 +40,9 @@
 }
 
 .ebook-title .ebook-name {
-  width: 70%;
-  font-size:25px;
-  font-weight:bolder;
+  width: 65%;
+  font-size:50rpx;
+  font-weight:bold;
 }
 
 .ebook-name .ebook-free {
@@ -100,90 +99,85 @@
 }
 
 .ebook-content .ebook-info {
-  font-weight: bold;
   width: 100%; 
   display: inline-block
 }
 
 .ebook-info .info-title {
   text-align: left;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.info {
-  margin-bottom: 5px;
+  font-size: 34rpx;
+  color: gray;
 }
 
 .ebook-info .author {
-  font-size: 24px;
-  margin-left: 20px;
+  font-size: 36rpx;
+  margin-left: 40rpx;
 }
 
 .ebook-info .org_name {
-  font-size: 20px;
-  margin-left: 20px;
+  font-size: 36rpx;
+  margin-left: 40rpx;
 }
 
 .ebook-info .issue_date {
-  font-size: 22px;
-  margin-left: 20px;
+  font-size: 34rpx;
+  margin-left: 40rpx;
 }
 
 .ebook-info .publisher {
-  font-size: 22px;
-  margin-left: 20px;
+  font-size: 34rpx;
+  margin-left: 40rpx;
 }
 
 .ebook-info .translator {
-  font-size: 22px;
-  margin-left: 20px;
+  font-size: 34rpx;
+  margin-left: 40rpx;
 }
 
 .ebook-info .pages {
-  font-size: 20px;
-  margin-left: 20px;
+  font-size: 34rpx;
+  margin-left: 40rpx;
 }
 
 .ebook-info .type {
-  font-size: 20px;
-  margin-left: 20px;
+  font-size: 34rpx;
+  margin-left: 40rpx;
 }
 
 .ebook-info .language {
-  font-size: 20px;
-  margin-left: 20px;
+  font-size: 34rpx;
+  margin-left: 40rpx;
 }
 
 .ebook-info .price {
-  font-size: 20px;
-  margin-left: 20px;
+  font-size: 34rpx;
+  margin-left: 40rpx;
 }
 
 .ebook-info .eprice {
-  font-size: 20px;
-  margin-left: 20px;
+  font-size: 34rpx;
+  margin-left: 40rpx;
 }
 
 .ebook-info .kp_coin {
-  font-size: 22px;
-  margin-left: 20px;
+  font-size: 34rpx;
+  margin-left: 40rpx;
 }
 
 .seperator {
   width: 100%;
-  height: 5px;
+  height: 10rpx;
   background-color: #E8E8E8;
 }
 .v-seperator {
-  width:4px;
+  width: 8rpx;
   height: inherit;
   background-color: #E8E8E8;
 }
 
 .intro {
-  margin-top: 15px;
-  padding-bottom: 10px;
+  margin-top: 30rpx;
+  padding-bottom: 20rpx;
 }
 
 .intro-title {
@@ -200,7 +194,7 @@
   width: 90%;
   margin-left: 3px;
   text-align: left;
-  font-size: 22px;
+  font-size: 36rpx;
   color: black;
   font-weight: bold;
 }
@@ -209,11 +203,12 @@
 }
 
 .ebook-intro {
-  margin: 10px;
+  margin: 20rpx 40rpx;
 }
 
 .ebook-intro .intro-content {
-   height: 100px; 
+   height: 200rpx; 
+   font-size: 34rpx;
 }
 
 .ebook-intro span {
@@ -223,7 +218,7 @@
 
 .popularity-table {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   /* border: 0px solid;  */
 }
@@ -236,7 +231,7 @@
 }
 .td {
     width:40%;
-    font-size: larger;
+    font-size: 34rpx;
     justify-content: center;
     text-align: center;
     color: orangered;
@@ -252,10 +247,9 @@
 .th {
   width: 40%;
   justify-content: center;
-  font-size: larger;
-  font-weight: bold;
+  font-size: 34rpx;
   display: flex;
-  height: 2rem;
+  height: 1.5rem;
   align-items: center;
 }
 
@@ -280,9 +274,9 @@
   width: 90%;
   margin-left: 3px;
   text-align: left;
-  font-size: 22px;
-  color: black;
+  font-size: 36rpx;
   font-weight: bold;
+  color: black;
 }
 .resource-title .title text{
   border-bottom: 1px solid #1296db;
@@ -299,27 +293,26 @@
 
 .resource-content {
   width: 100%;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
+  /* padding-top: 10rpx; */
+  padding-bottom: 8rpx; 
+  margin-bottom: 10rpx;
   display: inline-flex;
   justify-content: space-around;
-  border-bottom: dotted 1px gray;
-  font-size: 18px;
+  border-bottom: dashed 1px gray;
+  font-size: 32rpx;
 }
 
 .ebook-resource .resource-title {
   width: 40%;
-  font-weight: bold;
   margin-bottom: 10px;
 }
 
 .resource-content .resource-index {
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .resource-content .resource-name {
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .resource-content .resource-info {
@@ -328,12 +321,10 @@
 
 .resource-content .resource-size {
   text-align: center;
-  font-weight: bold;
 }
 
 .resource-content .resource-format {
   text-align: center;
-  font-weight: bold;
 }
 
 .resource-content .resource-push {
@@ -341,21 +332,21 @@
 }
 
 .resource-push button image {
-  width: 25px;
-  height: 25px;
-  margin-left: 2px;
-  margin-right: 2px;
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 4rpx;
+  margin-right: 4rpx;
 }
 
 .resource-push button {
-  height: 30px;
-  line-height: 2.3;
+  height: 50rpx;
+  line-height: 1.9;
   /* margin-top: 0.7rem; */
 }
 
 .bottom {
   height: 20px;
   text-align: center;
-  font-size: 15px;
+  font-size: 32rpx;
   color: gray
 }

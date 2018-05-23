@@ -147,13 +147,13 @@
 .recommend-container .recommend-poster {
   width: 180rpx;
   height: 225rpx; 
-  margin-left: 20rpx;
-  margin-right: 20rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
   box-shadow:4px 4px 15px gray;
 }
 
 .recommend-info {
-  width: 170rpx; 
+  width: 160rpx; 
   display: flex;
   flex-direction: column;
   text-align: center;
