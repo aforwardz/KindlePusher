@@ -71,8 +71,7 @@
 }
 .td {
     width:40%;
-    font-size: 48rpx;
-    font-weight: bold;
+    font-size: 44rpx;
     justify-content: center;
     text-align: center;
     /* border: 1px gray;
@@ -80,7 +79,6 @@
 }
 .heading{
   font-size: 40rpx;
-  font-weight: bold;
   background: none; 
 }
 .content{
@@ -90,7 +88,6 @@
   width: 40%;
   justify-content: center;
   color: #fff;
-  font-size: larger;
   display: flex;
   height: 3rem;
   align-items: center;
@@ -100,7 +97,6 @@
   margin-top: 4rem;
   width: 80%;
   height: 20px;
-  font-weight: bold;
   text-align: center;
 }
 

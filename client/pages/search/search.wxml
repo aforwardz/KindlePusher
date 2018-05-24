@@ -19,7 +19,7 @@
       </view>
       <view class='hot-label'>
         <block wx:for='{{hots}}' wx:for-item='hot'>
-          <view class='label' data-hot='hot' bindtap='searchHot'>
+          <view class='label' data-hot='{{hot}}' bindtap='searchHot'>
             <text>{{hot}}</text>
           </view>
         </block>
@@ -57,9 +57,9 @@
     <view class='feedback'>
       <text>没有找到想要的？发送书目详情到god@kindlepusher.cn</text>
     </view>
-    <block wx:for="{{result.subjects}}" wx:for-item="item">
-      <view class="book-wrapper" data-id="{{item.id}}" bindtap="viewBook" style="background-color: {{index%2==0?'#C7F2E4': 'white'}}">
-        <view class="book-content">
+    <view class='book-wrapper'>
+      <view class='book-item' wx:for="{{result.subjects}}" wx:for-item="item">
+        <view class="book-container" data-id="{{item.id}}" bindtap="viewBook" style="background-color: {{index%2==0?'#C7F2E4': 'white'}}">
           <image class="poster" src="{{item.poster}}"></image>
           <view class="breif-intro">
             <view class="book-name">
@@ -68,25 +68,15 @@
             <view class="book-author">
               <text class="author">{{item.author}}</text>
             </view>
-            <view class="book-info">
-              <view class="book-date">
-                <text class="date">{{item.issue_date}}</text>
-              </view>
-              <view class="book-rate">
-                <text class="rate">{{item.scores}}</text>
-              </view>
+            <view class="book-date">
+              <text class="date">{{item.issue_date}}</text>
             </view>
-            <!-- <view class="format-section">
-              <picker bindchange="bindPickerChange" value="{{index}}" range="{{item.format}}">
-                <view class="picker">
-                  选择格式：{{item.format[index]}}
-                </view>
-              </picker>
-            </view> -->
+            <view class="book-rate">
+              <text class="rate">{{item.scores}}</text>
+            </view>
           </view>
         </view>
       </view>
-      <view class='seperator'></view>
-    </block>
+    </view>
   </scroll-view>
 </view>

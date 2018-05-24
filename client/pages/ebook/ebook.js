@@ -55,6 +55,7 @@ Page({
                 id: rId,
                 email: email
               }
+              console.log(pushData)
               wx.request({
                 url: ebook_api.PUSH_API,
                 method: 'POST',

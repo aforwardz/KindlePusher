@@ -5,19 +5,19 @@
       <text class="title">Kindle Pusher</text>
       <view class='menu-wrapper'>
         <view id='latest-index' class='menu-icon latest' bindtap='scrollTo'>
-          <image src='../../assets/images/new.png' style='width: 40px;height:40px'></image>
+          <image src='../../assets/images/new.png'></image>
           <text>最新</text>
         </view>
         <view id='recommend-index' class='menu-icon recommend' bindtap='scrollTo'>
-          <image src='../../assets/images/recommend2.png' style='width: 40px;height:40px'></image>
+          <image src='../../assets/images/recommend2.png'></image>
           <text>推荐</text>
         </view>
         <view id='rank-index' class='menu-icon rank' bindtap='scrollTo'>
-          <image src='../../assets/images/rank.png' style='width: 40px;height:40px'></image>
+          <image src='../../assets/images/rank.png'></image>
           <text>排行</text>
         </view>
         <view id='free-index' class='menu-icon free' bindtap='scrollTo'>
-          <image src='../../assets/images/free.png' style='width: 40px;height:40px'></image>
+          <image src='../../assets/images/free.png'></image>
           <text>免费</text>
         </view>
       </view>
@@ -26,60 +26,58 @@
   <view class='seperator'></view>
   <view id='latest-part' class="home-container latest">
     <view class='pin-bar'>
-      <image src='../../assets/images/pin.png' style='width: 30px;height:30px'></image>
+      <image src='../../assets/images/pin.png'></image>
       <view class="title">
         <text>最新上线</text>
       </view>
     </view>
-      <block wx:for="{{latests}}" wx:for-item="item">
-       <view class="latest-wrapper" data-id='{{item.id}}' bindtap='viewEbook'>
-        <image mode='widthFix' class='poster-thumb' src='{{item.poster}}'></image>
+    <view class='latest-wrapper'>
+      <view class='latest-item' wx:for="{{latests}}" wx:for-item="item">
+       <view class="latest-container" data-id='{{item.id}}' bindtap='viewEbook'>
+        <image class='poster-thumb' src='{{item.poster}}'></image>
         <view class='latest-info'>
           <view class="latest-name">
             <text>{{item.name}}</text>
           </view>
-          <view class="publisher">
-            <text>{{item.publisher}}</text>
-          </view>
-          <view class="latest-date">
-            <text>{{item.create_time}}</text>
-          </view>
         </view>
        </view>
-      </block>
+      </view>
+    </view>
   </view>
   <view class='seperator'></view>
   <view id='recommend-part' class="home-container recommend">
     <view class='pin-bar'>
-      <image src='../../assets/images/pin.png' style='width: 30px;height:30px'></image>
+      <image src='../../assets/images/pin.png'></image>
       <view class="title">
         <text>墙裂推荐</text>
       </view>
     </view>
-      <block wx:for="{{recommends}}" wx:for-item="item">
-       <view class="recommend-wrapper" data-id='{{item.id}}' bindtap='viewEbook'>
-       <image mode='widthFix' class='poster-thumb' src='{{item.poster}}'></image>
-       <view class='recommend-info'>
-        <view class="recommend-name">
-          <text>{{item.name}}</text>
+      <view class='recommend-wrapper'>
+        <view class='recommend-item' wx:for="{{recommends}}" wx:for-index="idx" wx:for-item="item">
+        <view class="recommend-container" data-id='{{item.id}}' bindtap='viewEbook' style="{{idx % 2 ? 'border-left: 3rpx dashed #E8E8E8': 'border-right: 3rpx dashed #E8E8E8'}}">
+          <image class='recommend-poster' src='{{item.poster}}'></image>
+          <view class='recommend-info'>
+            <view class="recommend-name">
+              <text>{{item.name}}</text>
+            </view>
+            <view class="recommend-author">
+              <text>{{item.author}}</text>
+            </view>
+            <view class="recommend-type">
+              <text>{{item.ebook_type}}</text>
+            </view>
+            <view class="recommend-issue_date">
+              <text>{{item.issue_date}}</text>
+            </view>
+          </view>
         </view>
-        <view class="recommend-author">
-          <text>{{item.author}}</text>
         </view>
-        <view class="recommend-type">
-          <text>{{item.ebook_type}}</text>
-        </view>
-        <view class="recommend-issue_date">
-          <text>{{item.issue_date}}</text>
-        </view>
-       </view>
-       </view>
-      </block>
+      </view>
   </view>
   <view class='seperator'></view>
   <view id='rank-part' class="home-container rank">
     <view class='pin-bar'>
-      <image src='../../assets/images/pin.png' style='width: 30px;height:30px'></image>
+      <image src='../../assets/images/pin.png'></image>
       <view class="title">
         <text>排行榜</text>
       </view>
@@ -104,7 +102,7 @@
   <view class='seperator'></view>
   <view id='free-part' class="home-container free">
     <view class='pin-bar'>
-      <image src='../../assets/images/pin.png' style='width: 30px;height:30px'></image>
+      <image src='../../assets/images/pin.png'></image>
       <view class="title">
         <text>免费专区</text>
       </view>

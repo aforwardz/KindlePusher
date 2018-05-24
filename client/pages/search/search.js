@@ -15,7 +15,7 @@ Page({
       subjects: []
     },
     searched: false,
-    hots: ['天才余', 'RNG', '陈独秀', '小猪配齐'],
+    hots: ['人工智能', '区块链', '陈独秀', '哈利波特'],
     guess: [{ like: '熊出没', likely: '70%' }, { like: '四驱兄弟', likely: '40%' }]
   },
 

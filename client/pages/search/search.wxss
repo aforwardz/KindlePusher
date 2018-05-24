@@ -62,11 +62,11 @@
 
 .search-default {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .hot-search {
-  margin: 0.5rem;
+  padding: 0.5rem;
 }
 
 .title {
@@ -75,17 +75,16 @@
 }
 
 .title image {
-  width: 30px;
-  height: 30px;
+  width: 50rpx;
+  height: 50rpx;
 }
 
 .title .title-content {
   width: 90%;
   margin-left: 3px;
   text-align: left;
-  font-size: 22px;
+  font-size: 36rpx;
   color: black;
-  font-weight: bold;
 }
 .title .title-content text{
   border-bottom: 1px solid #1296db;
@@ -97,13 +96,15 @@
   flex-direction: row;
   flex-wrap: wrap;
   background-color: #E8E8E8;
+  margin: 0.5rem 0;
 }
 
 .label {
-  width: 100px;
+  width: 150rpx;
   text-align: center;
   margin-top: 5px;
   margin-bottom: 8px;
+  font-size: 30rpx;
   flex:auto;  
 }
 
@@ -121,12 +122,12 @@
 
 .guess-search .guess-label {
   margin: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 0.5rem;
 }
 
 .guess-item {
   margin-bottom: 0.5rem;
-  font-size: 18px;
+  font-size: 30rpx;
   background-color: lightskyblue;
 }
 
@@ -150,74 +151,77 @@
   margin-top: 0.5rem;
   padding-bottom: 0.5rem;
   text-align: center;
-  font-size: 18px;
+  font-size: 32rpx;
   color: gray;
   /* border-bottom: 1px dotted gray; */
 }
 
 .feedback {
   width: 100%;
-  margin-top: 0.5rem;
-  padding-bottom: 0.5rem;
   text-align: center;
-  font-size: 14px;
+  font-size: 26rpx;
   color: gray;
-  border-bottom: 1px solid gray;
+  margin-bottom: 20rpx;
 }
 
 .book-wrapper {
-  padding-top: 15px;
-  padding-bottom: 20px;
+  display: flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.book-item {
+  width: 49%;
+  /* display: flex; */
+}
+
+.book-container {
+  width: 100%;
+  display: flex;
+  padding: 24rpx 0px;
   /* background-color: #C7F2E4; */
 }
 
-.book-content {
-  margin: 10px;
-  display: flex;
-}
-
 .poster {
-  width: 100px;
-  height: 120px;
-  margin-right: 10px;
+  width: 180rpx;
+  height: 225rpx; 
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  box-shadow:4px 4px 15px gray;
 }
 
 .breif-intro {
-  width: 70%;
-  align-items: center;
+  width: 160rpx; 
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 .breif-intro .book-name {
-  width: 100%;
-  font-size: x-large; 
+  font-size: 24rpx;
   text-align: center;
-  margin-bottom: 10px;
+  margin-top: 20rpx;
 }
 
 .breif-intro .book-author {
-  width: 100%;
-  color: black;
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 24rpx;
+  color: green;
   text-align: center;
+  line-height: 1.5;
 }
 
-.book-info {
-  display: flex;
-}
-
-.book-info .book-date {
-  width: 60%;
+.breif-intro .book-date {
   color: orange;
-  font-size: 20px;
-  line-height: 1.6
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  /* line-height: 1.6 */
 }
 
-.book-info .book-rate {
-  width: 40%;
+.breif-intro .book-rate {
   color: red;
-  font-size:22px;
-  text-align: right;
+  font-size:24rpx;
+  margin-top: 10rpx;
 }
 
 
