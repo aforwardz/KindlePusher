@@ -1,5 +1,5 @@
 // pages/account/account.js
-var ebook_api = getApp().ebook_service
+const app = getApp()
 var util = require('../../utils/util.js')
 
 Page({
@@ -11,72 +11,9 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    authorized: true,
+    hasUserInfo: false,
     requestResult: '',
     userData: []
-  },
-
-  // 用户登录示例
-  login: function () {
-    if (this.data.logged) return
-
-    util.showBusy('正在登录')
-    var that = this
-
-    wx.login({
-      success: function (res) {
-        if (res.code) {
-          //发起网络请求
-          wx.request({
-            url: ebook_api.WXLOGIN_API,
-            data: {
-              code: res.code
-            },
-            success: function (wxRes) {
-              util.showBusy('等待校验')
-              if (wxRes.data.status == 'check') {
-                console.log(wxRes.data)
-                var open_id = wxRes.data.open_id
-                wx.getUserInfo({
-                  success: function (userRes) {
-                    wx.request({
-                      url: ebook_api.KDLOGIN_API,
-                      data: {
-                        encryptedData: userRes.encryptedData,
-                        iv: userRes.iv,
-                        open_id: open_id
-                      },
-                      method: 'POST',
-                      success: function (kdRes) {
-                        util.showSuccess('登录成功')
-                        that.setData({
-                          userInfo: kdRes.data,
-                          logged: true
-                        })
-                        wx.setStorage({
-                          key: "email",
-                          data: kdRes.data.kindle_email
-                        },
-                        {
-                          key: "Token",
-                          data: kdRes.data.openId
-                        })
-                      },
-                      fail: function (kdRes) {
-                        util.showModal('错误', '登录失败')
-                        console.log(kdRes)
-                      }
-                    })
-                  }
-                })
-              }
-            }
-          })
-        } else {
-          util.showModal('错误', '登录失败: ' + res.errMsg)
-        }
-      }
-    })
   },
 
   validateEmail: function (email) {
@@ -93,19 +30,15 @@ Page({
         success: function (res) {
           if (res.confirm) {
             var uData = {
-              id: that.data.userInfo.id,
-              nickname: that.data.userInfo.nickname,
+              open_id: wx.getStorageSync('openid'),
               kindle_email: event.detail.value
             }
             wx.request({
-              url: ebook_api.EMAIL_API,
+              url: app.API.EMAIL_API,
               method: 'PUT',
               data: uData,
               success: function (res) {
                 util.showSuccess('设置成功')
-                that.setData({
-                  userInfo: res.data
-                })
                 wx.setStorage({
                   key: "email",
                   data: res.data.kindle_email
@@ -125,64 +58,49 @@ Page({
   },
 
   bindAuthorize: function () {
-    var that = this
-    that.setData({authorized: true})
-    console.log(that)
-    that.login()
+    util.showBusy('正在登录')
+    console.log(e)
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+    util.showSuccess('登录成功')
+    app.login()
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-    
-    if (wx.getStorageSync('isAuthorized')) {
-      wx.checkSession({
-        success: function (data) {
-          var token = wx.getStorageSync('Token')
-          console.log('token')
-          console.log(token)
-          if (token) {
-            wx.request({
-              url: ebook_api.TKLOGIN_API,
-              data: {
-                Token: token
-              },
-              method: 'POST',
-              success: function (tkRes) {
-                that.setData({
-                  userInfo: tkRes.data,
-                  logged: true
-                })
-                wx.setStorage({
-                  key: "email",
-                  data: tkRes.data.kindle_email
-                },
-                {
-                  key: "Token",
-                  data: tkRes.data.openId
-                })
-              },
-              fail: function (tkRes) {
-                util.showModal('错误', '登录失败')
-                console.log(tkRes)
-              }
-            })
-          } else {
-            that.login()
-          }
-          // wx.setStorage({
-          //   key: 'session_key',
-          //   data: '',
-          // })
-        },
-        fail: function (data) {
-          console.log(data)
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        app.globalData.userInfo = res.userInfo
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+        if (!wx.getStorageSync('token')) {
+          app.login()
+        }
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
         }
       })
-    } else {
-      that.setData({authorized: false})
+      app.login()
     }
   },
 
