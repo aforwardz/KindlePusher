@@ -62,8 +62,10 @@ Page({
                 data: pushData,
                 success: function (sRes) {
                   if (sRes.data.statusText == 'OK') {
-                    util.showSuccess('推送成功！')
-                    that.setData({ebook: {pushes: that.data.ebook.pushes + 1}})
+                    util.showSuccess('成功加入推送队列！稍后查收！')
+                    var book = that.data.ebook
+                    book.pushes = book.pushes + 1
+                    that.setData({ebook: book})
                   } else {
                     util.showModal('失败', sRes.data.detail)
                   }

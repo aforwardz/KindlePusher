@@ -16,7 +16,7 @@ Page({
     },
     searched: false,
     hots: ['人工智能', '区块链', '陈独秀', '哈利波特'],
-    guess: [{ like: '熊出没', likely: '70%' }, { like: '四驱兄弟', likely: '40%' }]
+    guess: [{ like: '熊出没', likely: '70%' }, { like: '小猪佩琪', likely: '60%' }]
   },
 
   /**
