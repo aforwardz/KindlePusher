@@ -57,15 +57,18 @@ Page({
     }    
   },
 
-  bindAuthorize: function () {
+  bindAuthorize: function (e) {
     util.showBusy('正在登录')
-    console.log(e)
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
     util.showSuccess('登录成功')
     app.login()
+    console.log(app.globalData.userInfo)
+    this.setData({
+      userInfo: app.globalData.userInfo
+    })
   },
 
   /**

@@ -55,8 +55,10 @@ App({
                       success: function (Res) {
                         util.setLog('登录成功')
                         console.log(Res)
+                        that.globalData.userInfo = Res.data.userInfo
                         wx.setStorageSync('token', Res.data.token)
                         wx.setStorageSync('openid', Res.data.openid)
+                        // wx.setStorageSync('email', Res.data.token)
                       },
                       fail: function (Res) {
                         util.setLog(Res.errMsg)

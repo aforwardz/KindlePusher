@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/account/account",
     "pages/home/home",
     "pages/search/search",
     "pages/classify/classify",
-    "pages/account/account",
     "pages/ebook/ebook"
   ],
   "window": {

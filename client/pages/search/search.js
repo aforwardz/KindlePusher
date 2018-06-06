@@ -1,6 +1,5 @@
 // pages/home/search/search.js
-var app = getApp();
-var ebook_api = getApp().ebook_service
+const app = getApp()
 var util = require('../../utils/util.js')
 Page({
 
@@ -86,7 +85,7 @@ Page({
     value = value.trim()
     if (value) {
       that.setData({searched: true})
-      var serchURL = ebook_api.SEARCH_API + '?search=' + value;
+      var serchURL = app.API.SEARCH_API + '?search=' + value;
       wx.request({
         url: serchURL,
         success: function (res) {
