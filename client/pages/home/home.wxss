@@ -114,18 +114,6 @@
   line-height: 2.5;
 }
 
-.latest-info .publisher {
-  font-size: 18px;
-  text-align: center;
-}
-
-.latest-info .latest-date {
-  font-size: 18px;
-  color: green;
-  text-align: center;
-  line-height: 3;
-}
-
 .recommend-wrapper {
   display: flex;
   flex-direction:row;
