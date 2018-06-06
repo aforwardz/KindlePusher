@@ -1,5 +1,6 @@
 // pages/home/home.js
-var ebook_api = getApp().ebook_service
+const app = getApp()
+
 Page({
 
   /**
@@ -29,7 +30,7 @@ Page({
   loadLatest: function () {
     var that = this;
     wx.request({
-      url: ebook_api.LATEST_API,
+      url: app.API.LATEST_API,
       success: function (response) {
         var latest_data = response.data
         if (latest_data) {
@@ -42,7 +43,7 @@ Page({
   loadRecommend: function () {
     var that = this;
     wx.request({
-      url: ebook_api.RECOMMEND_API,
+      url: app.API.RECOMMEND_API,
       success: function (response) {
         var recommend_data = response.data
         console.log(recommend_data)
@@ -56,7 +57,7 @@ Page({
   loadRank: function () {
     var that = this;
     wx.request({
-      url: ebook_api.RANK_API,
+      url: app.API.RANK_API,
       success: function (response) {
         var rank_data = response.data
         if (rank_data) {
@@ -69,7 +70,7 @@ Page({
   loadFree: function () {
     var that = this;
     wx.request({
-      url: ebook_api.FREE_API,
+      url: app.API.FREE_API,
       success: function (response) {
         var free_data = response.data
         if (free_data) {
@@ -149,7 +150,7 @@ Page({
     return {
       title: 'KindlePusher',
       path: '/pages/home/home',
-      imageUrl: '../../assets/images/kindlepusher.png',
+      imageUrl: '/assets/images/kindlepusher.png',
       success: function (res) {
         // 转发成功
         console.log(res)

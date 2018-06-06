@@ -14,6 +14,16 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+var setLog = function (text) {
+  console.log(text)
+  var logs = wx.getStorageSync('logs') || []
+  logs.unshift(Date.now().toString() + ': ' + text)
+  // console.log(logs)
+  wx.setStorage({
+    key: 'logs',
+    data: logs,
+  })
+}
 
 // 显示繁忙提示
 var showBusy = text => wx.showToast({
@@ -28,6 +38,12 @@ var showSuccess = text => wx.showToast({
     icon: 'success'
 })
 
+var showFail = text => wx.showToast({
+  title: text,
+  icon: 'none',
+  duration: 600
+})
+
 // 显示失败提示
 var showModal = (title, content) => {
     wx.hideToast();
@@ -39,4 +55,4 @@ var showModal = (title, content) => {
     })
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModal }
+module.exports = { formatTime, showBusy, showSuccess, showModal, setLog}

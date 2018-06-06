@@ -1,5 +1,5 @@
 // pages/ebook/ebook.js
-var ebook_api = getApp().ebook_service
+const app = getApp()
 var util = require('../../utils/util.js')
 Page({
 
@@ -18,7 +18,7 @@ Page({
     util.showBusy('正在卖力取书')
     var that = this
     wx.request({
-      url: ebook_api.RETRIEVE_API + id + '/',
+      url: app.API.RETRIEVE_API + id + '/',
       success: function (response) {
         if (response.statusCode !== 200) {
           util.showModal(response.statusCode.toString(), '书目获取失败')
@@ -57,7 +57,7 @@ Page({
               }
               console.log(pushData)
               wx.request({
-                url: ebook_api.PUSH_API,
+                url: app.API.PUSH_API,
                 method: 'POST',
                 data: pushData,
                 success: function (sRes) {

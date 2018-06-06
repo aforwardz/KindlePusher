@@ -7,13 +7,13 @@
             src="{{logged ? userInfo.avatar : '../../assets/images/user-unlogin.png'}}"
             background-size="cover"
         ></image>
-        <button size='mini' type='primary' open-type='getUserInfo' wx:if='{{!authorized}}' bindgetuserinfo='bindAuthorize'>授权</button>
+        <button size='mini' type='primary' open-type='getUserInfo' wx:if='{{!hasUserInfo}}' bindgetuserinfo='bindAuthorize'>授权</button>
         <view wx:else>
-            <text class="userinfo-nickname" hidden='{{!logged}}'>{{userInfo.nickname}}</text>
+            <text class="userinfo-nickname">{{userInfo.nickname}}</text>
         </view>
         <view class='location'>
-          <text class="province" hidden='{{!logged}}'>{{userInfo.province}}</text>
-          <text class="city" hidden='{{!logged}}'>{{userInfo.city}}</text>
+          <text class="province">{{userInfo.province}}</text>
+          <text class="city">{{userInfo.city}}</text>
         </view>
     </view>
     <view class='active-table'>
@@ -23,12 +23,12 @@
         <view class="th">贡献</view>
       </view>
       <view class="tr content">
-        <view class="td">{{logged ? userInfo.favors : '-'}}</view>
-        <view class="td">{{logged ? userInfo.pushes : '-'}}</view>
-        <view class="td">{{logged ? userInfo.contributes : '-'}}</view>
+        <view class="td">{{hasUserInfo ? userInfo.favors : '-'}}</view>
+        <view class="td">{{hasUserInfo ? userInfo.pushes : '-'}}</view>
+        <view class="td">{{hasUserInfo ? userInfo.contributes : '-'}}</view>
       </view>
     </view>
-    <view class='kindle-email' hidden='{{!logged}}'>
+    <view class='kindle-email' hidden='{{!hasUserInfo}}'>
       <input wx:if='{{userInfo.kindle_email.length == 0}}' type='text' placeholder='点击设置推送邮箱' bindconfirm='setKindleEmail'></input>
       <text class='email' wx:else>{{userInfo.kindle_email}}</text>
       <!-- <text class='tip'>请将god@kindlepusher.cn添加到亚马逊信任邮箱</text> -->
