@@ -4,12 +4,12 @@
     <view class="userinfo" bindtap="login">
         <image
             class="userinfo-avatar"
-            src="{{logged ? userInfo.avatar : '../../assets/images/user-unlogin.png'}}"
+            src="{{hasUserInfo ? userInfo.avatarUrl : '../../assets/images/user-unlogin.png'}}"
             background-size="cover"
         ></image>
         <button size='mini' type='primary' open-type='getUserInfo' wx:if='{{!hasUserInfo}}' bindgetuserinfo='bindAuthorize'>授权</button>
         <view wx:else>
-            <text class="userinfo-nickname">{{userInfo.nickname}}</text>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
         </view>
         <view class='location'>
           <text class="province">{{userInfo.province}}</text>
@@ -23,14 +23,14 @@
         <view class="th">贡献</view>
       </view>
       <view class="tr content">
-        <view class="td">{{hasUserInfo ? userInfo.favors : '-'}}</view>
-        <view class="td">{{hasUserInfo ? userInfo.pushes : '-'}}</view>
-        <view class="td">{{hasUserInfo ? userInfo.contributes : '-'}}</view>
+        <view class="td">{{userData ? userData.favors : '-'}}</view>
+        <view class="td">{{userData ? userData.pushes : '-'}}</view>
+        <view class="td">{{userData ? userData.contributes : '-'}}</view>
       </view>
     </view>
-    <view class='kindle-email' hidden='{{!hasUserInfo}}'>
-      <input wx:if='{{userInfo.kindle_email.length == 0}}' type='text' placeholder='点击设置推送邮箱' bindconfirm='setKindleEmail'></input>
-      <text class='email' wx:else>{{userInfo.kindle_email}}</text>
+    <view class='kindle-email'>
+      <input wx:if='{{!email}}' type='text' placeholder='点击设置推送邮箱' bindconfirm='setKindleEmail'></input>
+      <text class='email' wx:else>{{email}}</text>
       <!-- <text class='tip'>请将god@kindlepusher.cn添加到亚马逊信任邮箱</text> -->
     </view>
     <view class='author'>

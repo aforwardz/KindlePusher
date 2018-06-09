@@ -14,9 +14,16 @@ App({
               // 可以将 res 发送给后台解码出 unionId
               // this.globalData.userInfo = res.userInfo
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+              console.log('launch')
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
+              }
+              var open_id = wx.getStorageSync('openid')
+              if (!open_id) {
+                this.login()
+              } else {
+                this.userDataReadyCallback(open_id)
               }
             },
             fail: res => {
@@ -31,6 +38,7 @@ App({
     var that = this
     wx.login({
       success: function (res) {
+        console.log(res)
         if (res.code) {
           //发起网络请求
           wx.request({
@@ -41,9 +49,10 @@ App({
             success: function (wxRes) {
               if (wxRes.data.status == 'check') {
                 var open_id = wxRes.data.open_id
+                wx.setStorageSync('openid', open_id)
                 wx.getUserInfo({
                   success: function (userRes) {
-                    that.globalData.userInfo = userRes.userInfo
+                    console.log(userRes)
                     wx.request({
                       url: config.API.KDLOGIN_API,
                       data: {
@@ -55,10 +64,12 @@ App({
                       success: function (Res) {
                         util.setLog('登录成功')
                         console.log(Res)
-                        that.globalData.userInfo = Res.data.userInfo
                         wx.setStorageSync('token', Res.data.token)
                         wx.setStorageSync('openid', Res.data.openid)
-                        // wx.setStorageSync('email', Res.data.token)
+                        wx.setStorageSync('email', Res.data.email)
+                        if (that.userDataReadyCallback) {
+                          that.userDataReadyCallback(Res.data.openid)
+                        }
                       },
                       fail: function (Res) {
                         util.setLog(Res.errMsg)
@@ -78,6 +89,7 @@ App({
   },
   globalData: {
     userInfo: null,
+    userData: null
   },
   API: config.API
 })
