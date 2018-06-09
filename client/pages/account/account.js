@@ -8,12 +8,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
-    logged: false,
-    takeSession: false,
+    userInfo: null,
     hasUserInfo: false,
-    requestResult: '',
-    userData: []
+    userData: null,
+    email: wx.getStorageSync('email'),
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
   validateEmail: function (email) {
@@ -57,27 +56,41 @@ Page({
     }    
   },
 
+  getData: function (openid) {
+    var that = this
+    wx.request({
+      url: app.API.USERDATA_API + '?open_id=' + openid,
+      success: function (res) {
+        that.setData({userData: res.data})
+      }
+    })
+  },
+
   bindAuthorize: function (e) {
     util.showBusy('正在登录')
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+    app.globalData.userInfo = e.detail.userInfo
+    wx.hideToast()
     util.showSuccess('登录成功')
     app.login()
-    console.log(app.globalData.userInfo)
-    this.setData({
-      userInfo: app.globalData.userInfo
-    })
+    // this.setData({
+    //   userInfo: app.globalData.userInfo
+    // })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.userInfo) {
+    console.log('load')
+    console.log(app.globalData.userInfo)
+    if (app.globalData.userInfo && app.globalData.userData) {
       this.setData({
         userInfo: app.globalData.userInfo,
+        userData: app.globalData.userData,
         hasUserInfo: true
       })
     } else if (this.data.canIUse) {
@@ -85,13 +98,21 @@ Page({
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
         app.globalData.userInfo = res.userInfo
+        console.log('callback')
+        console.log(res)
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
-        if (!wx.getStorageSync('token')) {
+        console.log(wx.getStorageSync('token'))
+        if (!wx.getStorageSync('token') || !wx.getStorageSync('openid')) {
           app.login()
         }
+      }
+      app.userDataReadyCallback = res => {
+        console.log('data callback')
+        console.log(res)
+        this.getData(res)
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理

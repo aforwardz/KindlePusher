@@ -44,7 +44,8 @@ Page({
     var rName = e.currentTarget.dataset.name
     try {
       var email = wx.getStorageSync('email')
-      if (email) {
+      var open_id = wx.getStorageSync('openid')
+      if (email && open_id) {
         var that = this
         wx.showModal({
           title: '确认',
@@ -53,6 +54,7 @@ Page({
             if (res.confirm) {
               var pushData = {
                 id: rId,
+                open_id: open_id,
                 email: email
               }
               console.log(pushData)
@@ -78,7 +80,13 @@ Page({
           }
         })
       } else {
-        util.showModal('错误', '没设置邮箱推送个毛啊?!')
+        if (!email) {
+          util.showModal('错误', '没设置邮箱推送个毛啊?!')
+        }
+        if (!open_id) {
+          wx.hideToast()
+          util.showModal('错误', '没登录推送个毛啊?!')
+        }
       }
     } catch (e) {
       console.log(e)
