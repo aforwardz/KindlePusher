@@ -148,7 +148,7 @@ Page({
       console.log(res.target)
     }
     return {
-      title: 'KindlePusher',
+      title: 'KindlePusher电子书推送',
       path: '/pages/home/home',
       imageUrl: '/assets/images/kindlepusher.png',
       success: function (res) {

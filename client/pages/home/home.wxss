@@ -112,6 +112,9 @@
   font-size: 24rpx;
   text-align: center;
   line-height: 2.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .recommend-wrapper {
