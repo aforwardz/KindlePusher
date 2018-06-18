@@ -6,6 +6,22 @@
   background-attachment: fixed; 
 } 
 
+ /* @keyframes kf-marque-animation { 0% { transform: translateX(0); } 100% { transform: translateX(-33.3%); } }  */
+
+.marquee{
+  width: 100%;
+  height: 80rpx;
+  display: block;
+  position: relative;
+}
+.marquee .content{
+  white-space: nowrap;
+  position: absolute;
+  font-size: 28rpx;
+  top: 0;
+}
+
+
 .userinfo {
     margin-top: 30rpx;
     height: 30%;

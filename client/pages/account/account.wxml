@@ -1,6 +1,12 @@
 <!--pages/account/account.wxml-->
 <view class="container">
     <!-- 用户登录测试 -->
+    <view class='marquee'>
+      <view class='content' style="left:{{marqueeDistance2}}px;">
+        <text>{{text}}</text>
+        <text wx:if="{{marquee2copyStatus}}" style="margin-left:{{marquee2Margin}}px;margin-right:0">{{text}}</text>
+      </view>
+    </view>
     <view class="userinfo" bindtap="login">
         <image
             class="userinfo-avatar"
