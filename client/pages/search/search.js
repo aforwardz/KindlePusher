@@ -15,7 +15,24 @@ Page({
     },
     searched: false,
     hots: ['人工智能', '区块链', '陈独秀', '哈利波特'],
-    guess: [{ like: '熊出没', likely: '70%' }, { like: '小猪佩琪', likely: '60%' }]
+    guess: [{ like: '熊出没', likely: '70%' }, { like: '小猪佩琪', likely: '60%' }],
+    classify: [
+      {index: '1', label: '文学'},
+      {index: '2', label: '小说'},
+      {index: '25', label: '计算机'},
+      {index: '5', label: '艺术摄影'},
+      {index: '13', label: '历史'},
+      {index: '14', label: '法律'},
+      {index: '10', label: '哲学宗教'},
+      {index: '12', label: '心理学'},
+      {index: '23', label: '科技'},
+      {index: '16', label: '经济管理'},
+      {index: '17', label: '励志成功'},
+      {index: '3', label: '传记'},
+      {index: '9', label: '社会科学'},
+      {index: '26', label: '医学'},
+      {index: '29', label: '时尚'},
+      {index: '35', label: '体育'}]
   },
 
   /**
@@ -110,6 +127,10 @@ Page({
     } else {
       util.showModal('错误', '搜索内容为空')
     }
+  },
+
+  listClassBook: function (event) {
+    console.log(event)
   },
  
   /** 点击进入搜索条目 */

@@ -136,6 +136,39 @@
   color: gray;
 }
 
+.classify-search {
+  /* width: 100%; */
+  margin: 1rem 0.5rem 0.5rem 0.5rem;
+}
+
+.classify-search .classify-label {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* background-color: #E8E8E8; */
+  margin: 0.5rem 0;
+}
+
+.classify-label .label {
+  width: 150rpx;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 8px;
+  font-size: 30rpx;
+  flex:auto;  
+  /* border-radius: 30%; */
+}
+
+.classify-label .label text {
+  padding-left: 4px;
+  padding-right: 4px;
+  /* border-radius: 40%;  */
+  color: white;
+  background-color: #478384;
+  box-shadow: 3px 2px 3px gray;
+}
+
 .session-book {
   margin-top: 0.5rem;
   width: 100%;
