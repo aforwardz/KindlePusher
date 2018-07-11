@@ -1,6 +1,7 @@
 // pages/home/search/search.js
 const app = getApp()
 var util = require('../../utils/util.js')
+
 Page({
 
   /**
@@ -15,7 +16,7 @@ Page({
     },
     searched: false,
     hots: ['人工智能', '区块链', '陈独秀', '哈利波特'],
-    guess: [{ like: '熊出没', likely: '70%' }, { like: '小猪佩琪', likely: '60%' }],
+    guess: [{ like: '野猪佩琪', likely: '70%' }, { like: '熊出没', likely: '60%' }],
     classify: [
       {index: '1', label: '文学'},
       {index: '2', label: '小说'},
@@ -131,6 +132,10 @@ Page({
 
   listClassBook: function (event) {
     console.log(event)
+    var book_type = event.currentTarget.dataset.index
+    wx.navigateTo({
+      url: '/pages/classify/classify?book_type=' + book_type
+    })
   },
  
   /** 点击进入搜索条目 */
