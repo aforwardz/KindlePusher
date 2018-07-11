@@ -1,18 +1,39 @@
 // pages/classify/classify.js
+const app = getApp()
+var util = require('../../utils/util.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    book_list: null,
+    page: 1,
+    next: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var book_type = options.book_type
+    var that = this
+    wx.request({
+      url: app.API.TYPE_API + '?book_type=' + book_type,
+      success: function (res) {
+        util.showSuccess('获取成功')
+        console.log(res)
+        that.setData({
+          book_list: res.data.results,
+          next: res.data.next
+        })
+      },
+      fail: function (res) {
+        util.showFail('获取失败')
+        console.log(res)
+      }
+    })
   },
 
   /**
