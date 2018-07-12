@@ -1,2 +1,18 @@
 <!--pages/classify/classify.wxml-->
-<text>pages/classify/classify.wxml</text>
+<view class='container'>
+  <view class='title-wrapper'>
+    <view>{{title}}</view>
+  </view>
+  <view class='book-wrapper'>
+    <view class='book-item' wx:for='{{book_list}}' wx:for-item='book'>
+      <view class='book-container'>
+        <image class='book-poster' src='{{book.poster}}'></image>
+        <view class='book-info'>
+          <view class='info name'>{{book.name}}</view>
+          <view class='info author'>{{book.author}}</view>
+          <view class='info score' style='color: orange'>{{book.scores}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

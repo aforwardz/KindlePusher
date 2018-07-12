@@ -52,7 +52,7 @@
       </view>
       <view class='classify-label'>
         <block wx:for='{{classify}}' wx:for-item='class'>
-          <view class='label' data-index='{{class.index}}' bindtap='listClassBook'>
+          <view class='label' data-index='{{class.index}}' data-label='{{class.label}}' bindtap='listClassBook'>
             <text>{{class.label}}</text>
           </view>
         </block>
