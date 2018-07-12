@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    title: '',
     book_list: null,
     page: 1,
     next: null
@@ -19,6 +20,7 @@ Page({
   onLoad: function (options) {
     var book_type = options.book_type
     var that = this
+    that.setData({title: options.class_label})
     wx.request({
       url: app.API.TYPE_API + '?book_type=' + book_type,
       success: function (res) {

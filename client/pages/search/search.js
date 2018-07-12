@@ -133,8 +133,9 @@ Page({
   listClassBook: function (event) {
     console.log(event)
     var book_type = event.currentTarget.dataset.index
+    var class_label = event.currentTarget.dataset.label
     wx.navigateTo({
-      url: '/pages/classify/classify?book_type=' + book_type
+      url: '/pages/classify/classify?book_type=' + book_type + '&class_label=' + class_label
     })
   },
  
