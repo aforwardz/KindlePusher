@@ -4,7 +4,7 @@
     <view>{{title}}</view>
   </view>
   <view class='book-wrapper'>
-    <view class='book-item' wx:for='{{book_list}}' wx:for-item='book'>
+    <view class='book-item' wx:for='{{book_list}}' wx:for-item='book' data-id='{{book.id}}' bindtap='viewBook'>
       <view class='book-container'>
         <image class='book-poster' src='{{book.poster}}'></image>
         <view class='book-info'>

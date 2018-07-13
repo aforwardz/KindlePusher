@@ -21,7 +21,7 @@
 }
 
 .book-wrapper .book-item {
-  width: 49%;
+  width: 50%;
   display: flex;
 }
 
@@ -33,17 +33,19 @@
 }
 
 .book-container .book-poster {
-  width: 320rpx;
-  height: 400rpx; 
-  margin-left: 20rpx;
+  width: 275rpx;
+  height: 375rpx; 
+  margin-left: 50rpx;
   /* margin-right: 15rpx; */
-  box-shadow:4px 4px 15px gray;
+  border-radius: 20rpx;
 }
 
 .book-container .book-info {
-  width: 340rpx; 
+  width: 275rpx; 
   display: flex;
+  margin-left: 50rpx;
   flex-direction: column;
+  font-size: 32rpx;
   text-align: center;
   /* margin-right: 20px; */
 }

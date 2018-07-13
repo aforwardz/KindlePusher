@@ -55,4 +55,4 @@ var showModal = (title, content) => {
     })
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModal, setLog}
+module.exports = { formatTime, showBusy, showSuccess, showFail, showModal, setLog}
