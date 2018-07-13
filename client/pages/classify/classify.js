@@ -14,20 +14,20 @@ Page({
     next: null
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var book_type = options.book_type
+  getClassBook: function (url) {
     var that = this
-    that.setData({title: options.class_label})
     wx.request({
-      url: app.API.TYPE_API + '?book_type=' + book_type,
+      url: url,
       success: function (res) {
         util.showSuccess('获取成功')
         console.log(res)
+        if (that.book_list) {
+          var new_book_list = that.book_list.concat(res.data.results)
+        } else {
+          var new_book_list = res.data.results
+        }
         that.setData({
-          book_list: res.data.results,
+          book_list: new_book_list,
           next: res.data.next
         })
       },
@@ -36,6 +36,23 @@ Page({
         console.log(res)
       }
     })
+  },
+
+  viewBook: function (event) {
+    var id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/ebook/ebook?id=' + id.toString()
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var book_type = options.book_type
+    this.setData({title: options.class_label})
+    var url = app.API.TYPE_API + '?book_type=' + book_type
+    this.getClassBook(url)
   },
 
   /**
@@ -77,7 +94,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    if (this.next) {
+      this.getClassBook(next)
+    } else {
+      util.showFail('木有啦')
+    }
   },
 
   /**
