@@ -8,8 +8,8 @@
   height: 100rpx;
   font-size: 48rpx;
   font-weight: bold;
-  background-color: lightgrey;
-  color: orange;
+  background: linear-gradient(to bottom, lightgray, white);
+  color: #000899;
   text-align: center; 
 }
 
@@ -37,7 +37,8 @@
   height: 375rpx; 
   margin-left: 50rpx;
   /* margin-right: 15rpx; */
-  border-radius: 20rpx;
+  border-radius: 10rpx;
+  box-shadow: 0px 4px 15px gray;
 }
 
 .book-container .book-info {
