@@ -7,21 +7,30 @@
         <text wx:if="{{marquee2copyStatus}}" style="margin-left:{{marquee2Margin}}px;margin-right:0">{{text}}</text>
       </view>
     </view> -->
-    <view class="userinfo" bindtap="login">
-        <image
-            class="userinfo-avatar"
-            src="{{hasUserInfo ? userInfo.avatarUrl : '../../assets/images/user-unlogin.png'}}"
-            background-size="cover"
-        ></image>
-        <button size='mini' type='primary' open-type='getUserInfo' wx:if='{{!hasUserInfo}}' bindgetuserinfo='bindAuthorize'>授权</button>
-        <view wx:else>
-            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-        </view>
-        <view class='location'>
-          <text class="province">{{userInfo.province}}</text>
-          <text class="city">{{userInfo.city}}</text>
-        </view>
+    <view class='userinfo-wrapper'>
+      <view class="userinfo" bindtap="login">
+          <image
+              class="userinfo-avatar"
+              src="{{hasUserInfo ? userInfo.avatarUrl : '/assets/images/user-unlogin.png'}}"
+              background-size="cover"
+          ></image>
+          <button size='mini' type='primary' open-type='getUserInfo' wx:if='{{!hasUserInfo}}' bindgetuserinfo='bindAuthorize'>授权</button>
+          <view wx:else>
+            <view class='userinfo-short'>
+              <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+              <text class="userinfo-email">{{email}}</text>
+            </view>
+          </view>
+          <!-- <view class='email'>
+            <text>{{email}}</text>
+          </view> -->
+          <!-- <view class='location'>
+            <text class="province">{{userInfo.province}}</text>
+            <text class="city">{{userInfo.city}}</text>
+          </view>  -->
+      </view>
     </view>
+    <view class='seperator'></view>
     <view class='active-table'>
       <view class="tr heading">
         <view class="th">收藏</view>
@@ -34,12 +43,24 @@
         <view class="td">{{userData ? userData.contributes : '-'}}</view>
       </view>
     </view>
-    <view class='kindle-email'>
-      <input wx:if='{{!email}}' type='text' placeholder='点击设置推送邮箱' bindconfirm='setKindleEmail'></input>
-      <text class='email' wx:else>{{email}}</text>
-      <!-- <text class='tip'>请将god@kindlepusher.cn添加到亚马逊信任邮箱</text> -->
+    <view class='seperator'></view>
+    <view class='kpcoin-wrapper'>
+      <text class='kpcoin-title'>KP币</text>
+      <text class='kpcoin'>{{userData ? userData.kp : '-'}}</text>
     </view>
-    <view class='author'>
-      <text>@天才余先生</text>
+    <view class='seperator'></view>
+    <view class='contribute-wrapper' bindtap='contributeBook'>
+      <text>贡献图书(可获得KP币)</text>
+      <image src='../../assets/imgaes/right_row.png'></image>
+    </view>
+    <view class='seperator'></view>
+    <view class='feedback-wrapper' bindtap='feedbackHelp'>
+      <text>反馈与帮助</text>
+      <image src='../../assets/imgaes/right_row.png'></image>
+    </view>
+    <view class='seperator'></view>
+    <view class='about-wrapper' bindtap='aboutMe'>
+      <text>关于</text>
+      <image src='../../assets/imgaes/right_row.png'></image>
     </view>
 </view>
