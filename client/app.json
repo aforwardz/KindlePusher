@@ -4,7 +4,10 @@
     "pages/home/home",
     "pages/search/search",
     "pages/classify/classify",
-    "pages/ebook/ebook"
+    "pages/ebook/ebook",
+    "pages/account/contribute/contribute",
+    "pages/account/help/help",
+    "pages/account/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",

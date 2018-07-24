@@ -45,22 +45,23 @@
     </view>
     <view class='seperator'></view>
     <view class='kpcoin-wrapper'>
-      <text class='kpcoin-title'>KP币</text>
+      <text class='kpcoin-title'>KP币: </text>
       <text class='kpcoin'>{{userData ? userData.kp : '-'}}</text>
     </view>
     <view class='seperator'></view>
-    <view class='contribute-wrapper' bindtap='contributeBook'>
-      <text>贡献图书(可获得KP币)</text>
-      <image src='../../assets/imgaes/right_row.png'></image>
+    <view class='operation contribute' bindtap='contributeBook'>
+      <view class='option'>贡献图书(可获得KP币)</view>
+      <image src='/assets/images/right_row.png'></image>
     </view>
     <view class='seperator'></view>
-    <view class='feedback-wrapper' bindtap='feedbackHelp'>
-      <text>反馈与帮助</text>
-      <image src='../../assets/imgaes/right_row.png'></image>
+    <view class='operation feedback' bindtap='feedbackHelp'>
+      <view class='option'>反馈与帮助</view>
+      <image src='/assets/images/right_row.png'></image>
     </view>
     <view class='seperator'></view>
-    <view class='about-wrapper' bindtap='aboutMe'>
-      <text>关于</text>
-      <image src='../../assets/imgaes/right_row.png'></image>
+    <view class='operation about' bindtap='aboutMe'>
+      <view class='option'>关于</view>
+      <image src='/assets/images/right_row.png'></image>
     </view>
+    <view class='seperator'></view>
 </view>

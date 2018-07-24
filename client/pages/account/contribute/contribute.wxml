@@ -1,0 +1,6 @@
+<!--pages/account/contribute/contribute.wxml-->
+<view class='container'>
+  <view class='base title'></view>
+  <view class='base author'></view>
+  <view></view>
+</view>
