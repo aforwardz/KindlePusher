@@ -1,2 +1,19 @@
 <!--pages/account/help/help.wxml-->
-<text>pages/account/help/help.wxml</text>
+<view class='container'>
+  <view class='bind'>
+    <view class='help '></view>
+  </view>
+  <view class='contribute'>
+    <view class='help'></view>
+  </view>
+  <view class='feedback-wrapper'>
+    <view class='feedback'>
+      <view class='content'>
+        <input bindinput='bindFeedback' placeholder='请输入反馈信息'></input>
+      </view>
+      <view class='submit-wrapper'>
+        <view class='submit' bindtap='submitFeedback'>提交</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,1 +1,47 @@
 /* pages/account/help/help.wxss */
+
+.feedback-wrapper {
+  margin-top: 50rpx;
+  width: 90%;
+  height: 300rpx;
+}
+
+.feedback-wrapper .feedback {
+  width: 100%;
+  height: 200rpx;
+  background-color: #F6F3F3;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback .content {
+  color: #BFBFBF;
+  font-size: 28rpx;
+  text-align: left; 
+  margin: 20rpx;
+}
+
+.content input {
+  height: 160rpx;
+}
+
+.submit-wrapper {
+  margin-top: 20rpx;
+  width: 100%;
+  height: 86rpx;
+  display: flex;
+}
+
+.submit-wrapper .submit {
+  width: 216rpx;
+  height: 100%;
+  /* margin-left:auto;
+  margin-right:auto; */
+  margin: auto;
+  text-align:center;
+  font-size: 34rpx;
+  color: white;
+  background-color: lightblue;
+  border-radius: 20rpx;
+}

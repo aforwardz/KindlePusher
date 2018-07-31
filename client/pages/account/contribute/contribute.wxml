@@ -2,5 +2,6 @@
 <view class='container'>
   <view class='base title'></view>
   <view class='base author'></view>
-  <view></view>
+  <view class='upload-wrapper'></view>
+  <view class='bookinfo-wrapper' ></view>
 </view>
