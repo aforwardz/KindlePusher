@@ -40,6 +40,8 @@
      display: flex; 
     flex-direction: row;
     box-shadow: 0px 0px 20rpx gray;
+    background-color: #ebf6f7;
+    opacity: 80%;
 }
 
 .userinfo-avatar {
@@ -68,6 +70,17 @@
     font-size: 30rpx;
     /* font-weight: bold; */
     color: #007AFF;
+    margin-top: 50rpx;
+}
+
+.set-info {
+  width: 120rpx;
+}
+
+.set-info image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 60rpx 0 40rpx 40rpx;
 }
 
 .data-item {
@@ -88,6 +101,7 @@
   justify-content: center;
   height: 100rpx;
   align-items: center;
+  color: #80ceb0;
 }
 .td {
     width:40%;
@@ -120,6 +134,10 @@
   line-height: 3;
   font-size: 42rpx;
   font-weight: bold;
+}
+
+.kpcoin-wrapper .kpcoin-title {
+  color: gray
 }
 
 .operation {

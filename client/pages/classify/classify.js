@@ -21,8 +21,8 @@ Page({
       success: function (res) {
         util.showSuccess('获取成功')
         console.log(res)
-        if (that.book_list) {
-          var new_book_list = that.book_list.concat(res.data.results)
+        if (that.data.book_list) {
+          var new_book_list = that.data.book_list.concat(res.data.results)
         } else {
           var new_book_list = res.data.results
         }
@@ -94,8 +94,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if (this.next) {
-      this.getClassBook(next)
+    console.log(this.data)
+    if (this.data.next) {
+      this.getClassBook(this.data.next)
     } else {
       util.showFail('木有啦')
     }

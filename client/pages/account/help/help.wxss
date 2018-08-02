@@ -30,11 +30,10 @@
   margin-top: 20rpx;
   width: 100%;
   height: 86rpx;
-  display: flex;
 }
 
 .submit-wrapper .submit {
-  width: 216rpx;
+  width: 200rpx;
   height: 100%;
   /* margin-left:auto;
   margin-right:auto; */
@@ -44,4 +43,5 @@
   color: white;
   background-color: lightblue;
   border-radius: 20rpx;
+  line-height: 2.4
 }

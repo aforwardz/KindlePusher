@@ -22,9 +22,19 @@ Page({
     interval: 20, // 时间间隔
   },
 
+  contributeBook: function () {
+    util.showFail('暂未开放')
+  },
+
   feedbackHelp: function () {
     wx.navigateTo({
       url: '/pages/account/help/help',
+    })
+  },
+
+  aboutMe: function () {
+    wx.navigateTo({
+      url: '/pages/account/about/about',
     })
   },
 
