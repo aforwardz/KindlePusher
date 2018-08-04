@@ -21,6 +21,9 @@
               <text class="userinfo-email">{{email}}</text>
             </view>
           </view>
+          <view class='set-info'>
+            <image src='/assets/images/set.png'></image>
+          </view>
           <!-- <view class='email'>
             <text>{{email}}</text>
           </view> -->
