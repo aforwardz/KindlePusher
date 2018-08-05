@@ -49,7 +49,7 @@
     <view class='seperator'></view>
     <view class='kpcoin-wrapper'>
       <text class='kpcoin-title'>KP币: </text>
-      <text class='kpcoin'>{{userData ? userData.kp : '-'}}</text>
+      <text class='kpcoin'>{{userData.coin ? userData.coin : '-'}}</text>
     </view>
     <view class='seperator'></view>
     <view class='operation contribute' bindtap='contributeBook'>
