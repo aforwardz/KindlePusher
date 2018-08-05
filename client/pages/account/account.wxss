@@ -31,6 +31,7 @@
   margin-top: 30rpx;
   height: 200rpx;
   width: 100%;
+  margin-bottom: 10rpx;
 }
 
 .userinfo {
