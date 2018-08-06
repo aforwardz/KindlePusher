@@ -45,6 +45,12 @@
     opacity: 80%;
 }
 
+.userinfo button {
+  line-height: 3;
+  height: 80rpx;
+  margin-top: 50rpx;
+}
+
 .userinfo-avatar {
     width: 140rpx;
     height: 140rpx;

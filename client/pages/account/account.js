@@ -22,6 +22,16 @@ Page({
     interval: 20, // 时间间隔
   },
 
+  goSet: function () {
+    if (!this.data.hasUserInfo) {
+      util.showFail('未登录')
+    } else {
+      wx.navigateTo({
+        url: '/pages/account/set/set',
+      })
+    }
+  },
+
   contributeBook: function () {
     util.showFail('暂未开放')
   },
