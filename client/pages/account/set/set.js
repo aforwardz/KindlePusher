@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    email: wx.getStorageSync('email'),
+    email: '',
   },
 
   validateEmail: function (email) {
@@ -38,10 +38,7 @@ Page({
                 data: uData,
                 success: function (res) {
                   util.showSuccess('设置成功')
-                  wx.setStorage({
-                    key: "email",
-                    data: res.data.kindle_email
-                  })
+                  wx.setStorageSync( "email", res.data.kindle_email)
                 },
                 fail: function (res) {
                   util.showModal('错误', '推送邮箱设置失败')
@@ -75,7 +72,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.setData({email: wx.getStorageSync('email')})
   },
 
   /**
