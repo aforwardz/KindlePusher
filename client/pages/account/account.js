@@ -22,6 +22,16 @@ Page({
     interval: 20, // 时间间隔
   },
 
+  goSet: function () {
+    if (!this.data.hasUserInfo) {
+      util.showFail('未登录')
+    } else {
+      wx.navigateTo({
+        url: '/pages/account/set/set',
+      })
+    }
+  },
+
   contributeBook: function () {
     util.showFail('暂未开放')
   },
@@ -36,47 +46,6 @@ Page({
     wx.navigateTo({
       url: '/pages/account/about/about',
     })
-  },
-
-  validateEmail: function (email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    return re.test(String(email).toLowerCase())
-  },
-
-  setKindleEmail: function (event) {
-    if (this.validateEmail(event.detail.value)) {
-      var that = this
-      wx.showModal({
-        title: '确认',
-        content: '将' + event.detail.value + '设置成推送邮箱？',
-        success: function (res) {
-          if (res.confirm) {
-            var uData = {
-              open_id: wx.getStorageSync('openid'),
-              kindle_email: event.detail.value
-            }
-            wx.request({
-              url: app.API.EMAIL_API,
-              method: 'PUT',
-              data: uData,
-              success: function (res) {
-                util.showSuccess('设置成功')
-                wx.setStorage({
-                  key: "email",
-                  data: res.data.kindle_email
-                })
-              },
-              fail: function (res) {
-                util.showModal('错误', '推送邮箱设置失败')
-                console.log(kdRes)
-              }
-            })
-          }
-        }
-      })
-    } else {
-      util.showModal('验证失败', '邮箱格式有误')
-    }    
   },
 
   getData: function (openid) {
@@ -208,13 +177,17 @@ Page({
     var vm = this;
     var length = vm.data.text.length * 14;//文字长度
     var windowWidth = wx.getSystemInfoSync().windowWidth;// 屏幕宽度
-    vm.setData({
-      length: length,
-      windowWidth: windowWidth,
-      marquee2_margin: length < windowWidth ? windowWidth - length : vm.data.marquee2_margin//当文字长度小于屏幕长度时，需要增加补白
-    });
-    vm.run1();// 水平一行字滚动完了再按照原来的方向滚动
-    vm.run2();// 第一个字消失后立即从右边出现
+    var current_email = wx.getStorageSync('email')
+    if (current_email && current_email != vm.data.email) {
+      vm.setData({email: current_email})
+    }
+    // vm.setData({
+    //   length: length,
+    //   windowWidth: windowWidth,
+    //   marquee2_margin: length < windowWidth ? windowWidth - length : vm.data.marquee2_margin//当文字长度小于屏幕长度时，需要增加补白
+    // });
+    // vm.run1();// 水平一行字滚动完了再按照原来的方向滚动
+    // vm.run2();// 第一个字消失后立即从右边出现
   },
 
   /**

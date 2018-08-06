@@ -1,0 +1,11 @@
+<!--pages/account/set/set.wxml-->
+<view class='container'>
+  <view class='set-email'>
+    <view class='set-title'>
+      <text>邮箱</text>
+    </view>
+    <view class='email-container'>
+      <input bindconfirm='setEmail' value='{{email}}'></input>
+    </view>
+  </view>
+</view>
